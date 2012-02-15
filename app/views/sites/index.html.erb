@@ -4,7 +4,7 @@
 <% content_for :head do %>
   <%= auto_discovery_link_tag :atom, sites_path(:format => :atom) %>
 <% end %>
-<%=render 'shared/sns_buttons', :site => Site.new(:name => 'we love heroku', :url => 'welove.herokuapp.com', :hash_tag => 'weloveheroku') %>
+<%=render 'shared/sns_buttons', :site => Site.new(:name => 'we love heroku', :url => 'http://welove.herokuapp.com', :hash_tag => 'weloveheroku') %>
 <div class="hero-unit">
   <h1><%=t(".h1")%></h1>
   <%=t(".description_html")%>
