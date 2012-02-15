@@ -1,3 +1,6 @@
+<% content_for :grow do %>
+  <script type="text/javascript" src="http://growbutton.com/javascripts/button.js?apikey=2050d540-3a05-012f-064b-12313f00aced&shape=rectangle"></script>
+<% end %>
 <%=render 'shared/sns_buttons', :site => Site.new(:name => 'we love heroku', :url => 'welove.herokuapp.com', :hash_tag => 'weloveheroku') %>
 <div class="hero-unit">
   <h1><%=t(".h1")%></h1>

@@ -20,7 +20,10 @@ en:
       h1: "\"we love heroku\" is gallery which web service hosted on heroku."
       description_html: "<p>Let's add web service on heroku. Share the web services.</p>"
     show:
-      delete_confirm: "Are you really delete?"
+      delete:
+        h1: "Delete menu"
+        description: "You can't recover if you delete."
+        confirm: "Are you really delete?" 
     destroy:
       completed: "delete site completed"
   shared:

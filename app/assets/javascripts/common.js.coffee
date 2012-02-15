@@ -20,8 +20,17 @@ $ ->
       $.fancybox.hideActivity()
     )
     return
+  fix_style = () ->
+    error = $('form .control-group .field_with_errors').parent()
+    error.addClass('error')
+    setTimeout (->
+      error.removeClass('error')
+    ),3000
+    
+    return
   init = () ->
-    listen_ajax();
+    listen_ajax()
+    fix_style()
     return
   
   init()

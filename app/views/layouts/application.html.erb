@@ -26,6 +26,13 @@
     <meta property="og:description" content="this site is gallery which web service hosted on heroku" />
     <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
     <script src="//platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
     <%= render 'shared/ga' %>
   </head>
   <body data-spy="scroll" data-target=".subnav" data-offset="50">
@@ -38,7 +45,7 @@
             <span class="i-bar"></span>
             <span class="i-bar"></span>
           </a>
-          <a class="brand" href="/"><%=image_tag 'title.png', :alt => 'we love heroku' %></a>
+          <a class="brand" href="/"><%=image_tag 'title.png', :alt => 'we love heroku', :size => '170x40' %></a>
           <div class="container nav-collapse">
             <ul class="nav">
                 <li class="<%=(request.path == root_path ? 'active': '')%>"><%= link_to t(".nav.home"), "/"  %></li>
@@ -83,13 +90,14 @@
               <div class="well sidebar-nav">
                 <h3>twitter search result</h3>
                 <%= render 'shared/twitter', :tw_search_key => yield(:tw_search_key) %>
+                <%= yield :sidebar %>
             </div>
            </div>
           </div>
         </div>
 
       <footer id="pagefooter">
-        <p>&copy; <%= link_to 'ppworks', 'http://twitter.com/ppworks' %> <%=Time.current.year%></p>
+        <p>we love heroku &copy; <%= link_to 'ppworks', 'http://twitter.com/ppworks' %> <%=Time.current.year%></p>
       </footer>
 
     </div> <!-- /container -->

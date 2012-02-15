@@ -1,8 +1,16 @@
 <ul class="sns">
+  <% if content_for? :grow %>
+  <li>
+    <%= yield :grow %>
+  </li>
+  <% end %>
   <li>
     <%= render 'shared/fb_like_button', :site => site %>
   </li>
   <li>
     <%= render 'shared/tweet_button', :site => site %>
+  </li>
+  <li>
+    <%= render 'shared/google_button', :site => site %>
   </li>
 </ul>
