@@ -73,7 +73,7 @@ describe SitesController do
 
       it "redirects to the created site" do
         post :create, {:site => valid_attributes}
-        response.should redirect_to(Site.last)
+        response.should redirect_to(current_user_path)
       end
     end
 
