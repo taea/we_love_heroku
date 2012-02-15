@@ -1,5 +1,5 @@
 <% content_for :tw_search_key, @site.hash_tags %>
-<%=render 'shared/sns_buttons', :url => @site.url, :twitter_text => @site.url.gsub(/http(s)?:\/\//, ''), :twitter_hash_tag => @site.hash_tag %>
+<%=render 'shared/sns_buttons', :site => @site %>
 <section id="show">
 <div>
   <h3>Name:</h3>

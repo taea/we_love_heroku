@@ -1,4 +1,4 @@
-<%=render 'shared/sns_buttons', :url => 'http://welove.herokuapp.com', :twitter_text => 'we love heroku', :twitter_hash_tag => 'weloveheroku' %>
+<%=render 'shared/sns_buttons', :site => Site.new(:name => 'we love heroku', :url => 'welove.herokuapp.com', :hash_tag => 'weloveheroku') %>
 <div class="hero-unit">
   <h1><%=t(".h1")%></h1>
   <%=t(".description_html")%>

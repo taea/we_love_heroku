@@ -26,4 +26,8 @@ class Site < ActiveRecord::Base
   def hash_tags
     '#' + self.hash_tag.split(' ').join(' #')
   end
+  
+  def domain
+    self.url.gsub(%r{http(?:s)?://([^/]+).+}, '\1')
+  end
 end
