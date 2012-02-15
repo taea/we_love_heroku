@@ -6,6 +6,11 @@ class SitesController < ApplicationController
     @sites = Site.order('id DESC')
     @sites = @sites.search(params[:keyword]) if params[:keyword]
     @sites = @sites.page(params[:page]).per(25)
+    respond_to do |format|
+      format.html
+      format.js
+      format.atom
+    end
   end
 
   # GET /sites/1
