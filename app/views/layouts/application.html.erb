@@ -44,6 +44,7 @@
                 <li class="<%=(request.path == root_path ? 'active': '')%>"><%= link_to t(".nav.home"), "/"  %></li>
                 <li class="<%=(request.path == new_site_path ? 'active': '')%>"><%= link_to t(".nav.site_add"), new_site_path  %></li>
             </ul>
+            <%= render 'sites/search_form' %>
             <ul class="nav pull-right">
               <% if user_signed_in? %>
               <li class="dropdown">

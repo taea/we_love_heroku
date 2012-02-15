@@ -3,7 +3,9 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.order('id DESC').page(params[:page]).per(25)
+    @sites = Site.order('id DESC')
+    @sites = @sites.search(params[:keyword]) if params[:keyword]
+    @sites = @sites.page(params[:page]).per(25)
   end
 
   # GET /sites/1

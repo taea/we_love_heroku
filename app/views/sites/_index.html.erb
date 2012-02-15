@@ -16,7 +16,7 @@
   <%= paginate sites %>
   <% else %>
   <p class="alert alert-info">
-    <%= t('sites._index.nothing_html')%>
+    <%= t("sites._index.#{params[:keyword].present?.to_s}.nothing_html") %>
   </p>
   <% end %>
 </div>

@@ -27,10 +27,18 @@ describe SitesController do
   end
   
   describe "GET index" do
-    it "assigns all sites as @sites" do
-      site = Site.create! valid_attributes
-      get :index, {}
-      assigns(:sites).should eq([site])
+    context 'no parameter' do
+      it "assigns all sites as @sites" do
+        site = Site.create! valid_attributes
+        get :index, {}
+        assigns(:sites).should eq([site])
+      end
+    end
+    context 'with keyword' do
+      before do
+        get :index, :keyword => 'test'
+      end
+      it { response.should be_success }
     end
   end
 

@@ -11,6 +11,18 @@ class Site < ActiveRecord::Base
   
   belongs_to :user
   
+  scope :search, lambda {|keyword| where(["
+    name LIKE ? OR 
+    url LIKE ? OR 
+    description LIKE ? OR 
+    creator LIKE ? OR
+    hash_tag LIKE ? OR
+    repository_url LIKE ?
+    ", 
+    "%#{keyword}%", "%#{keyword}%", "%#{keyword}%",
+    "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"
+  ])}
+  
   def hash_tags
     '#' + self.hash_tag.split(' ').join(' #')
   end
