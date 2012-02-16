@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :except => [:login]
+  before_filter :authenticate_user!, :except => [:login, :show]
   
   def current
     @user = User.includes(:sites).find current_user.id
