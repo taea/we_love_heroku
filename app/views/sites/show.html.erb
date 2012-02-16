@@ -27,6 +27,17 @@
 </dl>
 </section>
 
+<% if @same_creators.present? %>
+<section class="well">
+  <h3><%= t('.same_creators.h3', :creator => @site.creator)%></h3>
+  <ul class="same_creators unstyled">
+  <% @same_creators.each do |site| %>
+    <li><%=link_to site.name, site_path(site) %></li>
+  <% end %>
+  </ul>
+</section>
+<% end %>
+
 <% if user_signed_in? && current_user.id == @site.user_id %>
 <div class="form-actions">
 <%= link_to edit_site_path(@site), class: ['btn btn-primary'] do %><i class="icon-pencil icon-white"></i>Edit<% end %>

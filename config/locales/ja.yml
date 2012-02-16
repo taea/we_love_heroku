@@ -23,6 +23,8 @@ ja:
         h1: "削除する場合はこちら"
         description: "削除すると元に戻すことは出来ません。"
         confirm: "本当に削除していいですか？"
+      same_creators:
+        h3: "%{creator}さんの他のサービス"
     destroy:
       completed: "削除しました。"
   shared:

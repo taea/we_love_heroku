@@ -1,8 +1,7 @@
 <tr>
-  <td class="span3"><%= link_to site.name, site.url, target: '_blank', rel: 'popover', :'data-title' => site.name, :'data-content' => truncate(site.description, :length => 100) %></td>
+  <td class="span3"><%= link_to site.name, site, rel: 'popover', :'data-title' => site.name, :'data-content' => truncate(site.description, :length => 100) %></td>
   <td><%= site.creator %></td>
   <td><%= render 'shared/fb_like_button', :site => site %></td>
   <td><%= render 'shared/tweet_button', :site => site %></td>
   <td><%= render 'shared/google_button', :site => site %></td>
-  <td><%= link_to 'Show', site, class: ['btn'] %></td>
 </tr>

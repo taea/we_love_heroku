@@ -9,4 +9,9 @@ describe Site do
   describe 'search' do
     it { Site.search('test').should be_instance_of ActiveRecord::Relation }
   end
+  
+  describe 'same_creators' do
+    let(:site) { Factory(:site) }
+    it { site.same_creators.size.should === 1 }
+  end
 end

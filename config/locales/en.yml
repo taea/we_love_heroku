@@ -24,6 +24,8 @@ en:
         h1: "Delete menu"
         description: "You can't recover if you delete."
         confirm: "Are you really delete?" 
+      same_creators:
+        h3: "%{creator}'s other site."
     destroy:
       completed: "delete site completed"
   shared:

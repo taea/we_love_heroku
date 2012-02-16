@@ -30,4 +30,8 @@ class Site < ActiveRecord::Base
   def domain
     self.url.gsub(%r{http(?:s)?://([^/]+).+}, '\1')
   end
+  
+  def same_creators
+    Site.where(:creator => self.creator)
+  end
 end
