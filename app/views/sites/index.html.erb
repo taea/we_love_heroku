@@ -6,6 +6,7 @@
   <h1><%=t(".h1")%></h1>
   <%=t(".description_html")%>
 </div>
+<% if params[:keyword].nil? %>
 <ul class="thumbnails">
   <% @pickups.each do|site|%>
   <li class="span3">
@@ -22,4 +23,5 @@
   </li>
   <% end %>
 </ul>
+<% end %>
 <%=render 'sites/index', :sites => @sites %>
