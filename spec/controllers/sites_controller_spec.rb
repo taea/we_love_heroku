@@ -32,6 +32,7 @@ describe SitesController do
         site = Site.create! valid_attributes
         get :index, {}
         assigns(:sites).should eq([site])
+        assigns(:pickups).should be_present
       end
     end
     context 'with keyword' do

@@ -34,4 +34,10 @@ class Site < ActiveRecord::Base
   def same_creators
     Site.where(:creator => self.creator)
   end
+  
+  def self.pickups
+    Rails.cache.fetch("model_site_pickups", :expires_in => 15.minutes) do
+      Site.all.sort_by{rand}[0..2]
+    end
+  end
 end

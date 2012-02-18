@@ -2,6 +2,7 @@
 <%=render 'shared/sns_buttons', :site => @site %>
 <section id="show" class="well">
 <h1><%= @site.name %></h1>
+<p><%=image_tag "http://capture.heartrails.com/large/delay=1?#{@site.url}" %></p>
 <div>
   <%= simple_format auto_link(@site.description, :link => :urls, :html => {:target => '_blank'}) %>
 </div>

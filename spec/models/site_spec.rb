@@ -14,4 +14,8 @@ describe Site do
     let(:site) { Factory(:site) }
     it { site.same_creators.size.should === 1 }
   end
+  
+  describe 'pickups' do
+    it { Site.pickups.should be_instance_of Array }
+  end
 end
