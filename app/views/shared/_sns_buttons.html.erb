@@ -1,9 +1,4 @@
 <ul class="sns">
-  <% if content_for? :grow %>
-  <li>
-    <%= yield :grow %>
-  </li>
-  <% end %>
   <li>
     <%= render 'shared/fb_like_button', :site => site %>
   </li>
