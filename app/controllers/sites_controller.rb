@@ -3,7 +3,7 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.order('id DESC')
+    @sites = Site.order('updated_at DESC')
     @sites = @sites.search(params[:keyword]) if params[:keyword]
     @sites = @sites.page(params[:page]).per(25)
     respond_to do |format|
