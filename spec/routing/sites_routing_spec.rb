@@ -6,7 +6,11 @@ describe SitesController do
     it "routes to #index" do
       get("/sites").should route_to("sites#index")
     end
-
+    
+    it "routes to #pickup" do
+      get("/sites/pickup").should route_to("sites#pickup")
+    end
+    
     it "routes to #new" do
       get("/sites/new").should route_to("sites#new")
     end

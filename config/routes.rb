@@ -5,7 +5,9 @@ Gallery::Application.routes.draw do
     match '/(.:format)', {:action=>"index", :controller=>"sites", :via => :get, :as => :new_user_session }
   end
 
-  resources :sites
+  resources :sites do
+    get :pickup, :on => :collection
+  end
   get '/users/current' => 'users#current', :as => :current_user
   get '/users/login' => 'users#login', :as => :login_user
   get '/users/:provider/:user_key' => 'users#show', :as => :user

@@ -1,18 +1,23 @@
 class SitesController < ApplicationController
   before_filter :authenticate_user!, :only => [:edit, :update, :destroy]
   # GET /sites
-  # GET /sites.json
+  # GET /sites.js
+  # GET /sites.atom
   def index
     @sites = Site.order('updated_at DESC')
     @sites = @sites.search(params[:keyword]) if params[:keyword]
     @sites = @sites.page(params[:page]).per(15)
     
-    @pickups = Site.pickups
     respond_to do |format|
       format.html
       format.js
       format.atom
     end
+  end
+  
+  # GET /sites/pickup
+  def pickup
+    @sites = Site.pickups
   end
 
   # GET /sites/1

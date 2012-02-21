@@ -1,0 +1,14 @@
+<% sites.each do|site|%>
+<li class="span3">
+  <div class="thumbnail">
+    <%=link_to site.url, :target => '_blank' do %>
+      <%=image_tag "http://capture.heartrails.com/large/delay=1?#{site.url}" %>
+    <% end %>
+    <h5><%=site.name%></h5>
+    <p>
+      <%=truncate(site.description, :length => 100)%>
+      <%=link_to 'more...', site_path(site)%>
+    </p>
+  </div>
+</li>
+<% end %>
