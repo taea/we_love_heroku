@@ -9,6 +9,7 @@ en:
         logout: "Logout"
   sites:
     _index:
+      h2: "Heroku lovers"
       "true":
         nothing_html: "no sites found. Are you add a site on heroku?<a href=\"/sites/new\" class=\"btn\">Add site</a>"
         nothing_html: "<a href=\"/sites/new\" class=\"btn\">サイトを登録する</a>"
@@ -16,9 +17,13 @@ en:
         nothing_html: "no sites registerd yet.<a href=\"/sites/new\" class=\"btn\">Add site</a>"
     _search_form:
       placeholder: "search"
+    _site:
+      detail: "Show Detail Page"
     index:
       h1: "\"we love heroku\" is gallery which web service hosted on heroku."
       description_html: "<p>Let's add web service on heroku. Share the web services.</p>"
+      random_pickups:
+        h2: "Pickup site"
     show:
       delete:
         h1: "Delete menu"

@@ -1,20 +1,14 @@
+<div class="page-header">
+<h2><%=t('sites._index.h2')%></h2>
+</div>
 <div id="sites">
   <% if sites.present? %>
   <%= paginate sites %>
-  <table class="table table-striped">
-    <tr>
-      <th>Thumbnail</th>
-      <th>Name</th>
-      <th>Creator</th>
-      <th>Likes</th>
-      <th>Tweets</th>
-      <th>+1</th>
-    </tr>
-  
+  <ul class="thumbnails">
   <% sites.each do |site| %>
-    <%= render 'sites/site', :site => site %>
+    <li><%= render 'sites/site', :site => site %></li>
   <% end %>
-  </table>
+  </ul>
   <%= paginate sites %>
   <% else %>
   <p class="alert alert-info">

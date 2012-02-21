@@ -1,8 +1,16 @@
-<tr>
-  <td><%=image_tag "http://capture.heartrails.com/tiny/delay=1?#{site.url}", :size => '60x45' %></td>
-  <td class="span3"><%= link_to site.name, site, rel: 'popover', :'data-title' => site.name, :'data-content' => truncate(site.description, :length => 100) %></td>
-  <td><%= site.creator %></td>
-  <td><%= render 'shared/fb_like_button', :site => site %></td>
-  <td><%= render 'shared/tweet_button', :site => site %></td>
-  <td><%= render 'shared/google_button', :site => site %></td>
-</tr>
+<div class="row">
+  <div class="span3">
+    <%=link_to site.url, :class => 'thumbnail', :target => '_blank' do %>
+      <%=image_tag "http://capture.heartrails.com/large/delay=1?#{site.url}" %>
+    <% end %>
+  </div>
+  <div class="span6">
+    <h3>
+    <%= link_to site.name, site %>
+    </h3>
+    <%=render 'shared/sns_buttons', :site => site %>
+    <%= simple_format auto_link(truncate(site.description, :length => 300), :link => :urls, :html => {:target => '_blank'}) %>
+    <p><%=link_to 'more...', site_path(site)%></p>
+    <%= link_to t('sites._site.detail'), site_path(site), :class => 'btn' %>
+  </div>
+</div>

@@ -7,12 +7,15 @@
   <%=t(".description_html")%>
 </div>
 <% if params[:keyword].nil? %>
+<div class="page-header">
+<h2><%=t(".random_pickups.h2")%></h2>
+</div>
 <ul class="thumbnails">
   <% @pickups.each do|site|%>
   <li class="span3">
     <div class="thumbnail">
       <%=link_to site.url, :target => '_blank' do %>
-        <%=image_tag "http://capture.heartrails.com/large/delay=1?#{site.url}", :size => '260x180' %>
+        <%=image_tag "http://capture.heartrails.com/large/delay=1?#{site.url}" %>
       <% end %>
       <h5><%=site.name%></h5>
       <p>

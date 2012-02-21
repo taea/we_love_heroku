@@ -1,3 +1,19 @@
 // Place all the styles related to the sites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div#sites {
+  ul.thumbnails {
+    >li {
+      position: relative;
+      &:not(:last-child) {
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #C7C7BA;
+      }
+      .btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+  }
+}
