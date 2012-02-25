@@ -1,4 +1,12 @@
 $ ->
+  init_google_plus_button = () ->
+    po = document.createElement("script")
+    po.type = "text/javascript"
+    po.async = true
+    po.src = "https://apis.google.com/js/plusone.js"
+    s = document.getElementsByTagName("script")[0]
+    s.parentNode.insertBefore po, s
+    return
   listen_ajax = () ->
     # remote="true" な処理のlisten
     $('form[data-remote="true"]').live "submit", (e) ->
@@ -29,6 +37,7 @@ $ ->
     
     return
   init = () ->
+    init_google_plus_button()
     listen_ajax()
     fix_style()
     return
