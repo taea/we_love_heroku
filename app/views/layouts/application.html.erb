@@ -62,7 +62,7 @@
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li class="<%=(request.path == user_path ? 'active': '')%>"><%=link_to t('.nav.user'), current_user_path%></li>
+                  <li class="<%=(request.path == current_user_path ? 'active': '')%>"><%=link_to t('.nav.user'), current_user_path%></li>
                   <li><%= link_to t('.nav.logout'), destroy_user_session_path, :method => :delete %></li>
                 </ul>
               </li>
