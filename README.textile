@@ -5,11 +5,25 @@ see http://welove.herokuapp.com
 h2. rails s
 
 <pre>
-FB_ADMINS={your_facebook_id} FB_APP_ID={your_application_id} bundle exec rails s
+FB_ADMINS={your_facebook_id} \
+FB_APP_ID={facebook_app_id} \
+FB_APP_SECRET={facebook_app_secret} \
+TW_APP_ID= {twitter_app_id} \
+TW_APP_SECRET= {twitter_app_secret} \
+GH_APP_ID={github_app_id} \
+GH_APP_SECRET={github_app_secret} \
+bundle exec rails s
 </pre>
 
 h2. test
 
 <pre>
-FB_ADMINS={your_facebook_id} FB_APP_ID={your_application_id} bundle exec guard start
+FB_ADMINS={your_facebook_id} \
+FB_APP_ID={facebook_app_id} \
+FB_APP_SECRET={facebook_app_secret} \
+TW_APP_ID= {twitter_app_id} \
+TW_APP_SECRET= {twitter_app_secret} \
+GH_APP_ID={github_app_id} \
+GH_APP_SECRET={github_app_secret} \
+bundle exec guard start
 </pre>
