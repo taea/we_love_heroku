@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212130021) do
+ActiveRecord::Schema.define(:version => 20120227132630) do
 
   create_table "providers", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(:version => 20120212130021) do
 
   add_index "providers_users", ["provider_id", "user_key"], :name => "idx_provider_id_user_key_on_providers_users", :unique => true
   add_index "providers_users", ["user_id"], :name => "idx_user_id_on_providers_users"
+
+  create_table "rooms", :force => true do |t|
+    t.integer  "user_id",     :null => false
+    t.string   "name",        :null => false
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "rooms", ["user_id"], :name => "idx_user_id_rooms"
 
   create_table "sites", :force => true do |t|
     t.string   "name"
