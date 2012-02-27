@@ -1,9 +1,12 @@
 class RoomsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index]
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.all
-
+    @rooms = Room.order('updated_at DESC')
+    @rooms = @rooms.search(params[:keyword]) if params[:keyword]
+    @rooms = @rooms.page(params[:page]).per(15)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rooms }
@@ -34,13 +37,13 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1/edit
   def edit
-    @room = Room.find(params[:id])
+    @room = current_user.rooms.find(params[:id])
   end
 
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(params[:room])
+    @room = current_user.rooms.new(params[:room])
 
     respond_to do |format|
       if @room.save
@@ -56,7 +59,7 @@ class RoomsController < ApplicationController
   # PUT /rooms/1
   # PUT /rooms/1.json
   def update
-    @room = Room.find(params[:id])
+    @room = current_user.rooms.find(params[:id])
 
     respond_to do |format|
       if @room.update_attributes(params[:room])
