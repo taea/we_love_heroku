@@ -38,6 +38,9 @@ Spork.prefork do
     
     # devise
     config.include Devise::TestHelpers, :type => :controller
+    
+    # master data
+    load "#{Rails.root}/db/seeds.rb"
   end
 end
 
