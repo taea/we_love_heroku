@@ -1,5 +1,7 @@
 h1. we love heroku
 
+!https://secure.travis-ci.org/ppworks/we_love_heroku.png?branch=master(Build Status)!:http://travis-ci.org/ppworks/we_love_heroku
+
 see http://welove.herokuapp.com
 
 h2. rails s
