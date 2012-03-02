@@ -39,7 +39,6 @@ Spork.prefork do
     # devise
     config.include Devise::TestHelpers, :type => :controller
   end
-  system("rake db:seed RAILS_ENV=test")
 end
 
 Spork.each_run do
