@@ -1,4 +1,5 @@
 [Provider].each do |c|
+  next if c.count > 0
   yml = File.read("#{Rails.root}/db/seeds/#{c.to_s.tableize}.yml")
   list = YAML.load(yml).symbolize_keys
   list[c.to_s.tableize.to_sym].each do |r|
