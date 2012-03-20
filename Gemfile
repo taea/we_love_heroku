@@ -10,7 +10,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-gem "twitter-bootstrap-rails", "~> 2.0rc0"
+gem "twitter-bootstrap-rails", '2.0.3'
 gem 'rails_autolink'
 gem 'kaminari'
 gem 'omniauth'
