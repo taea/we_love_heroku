@@ -119,7 +119,7 @@ class User < ActiveRecord::Base
     providers_user = ProvidersUser.find_by_provider_id_and_user_key Provider.github.id, auth['uid'].to_s
     name = auth['info']['nickname']
     image = auth['extra']['raw_info']['avatar_url']
-    email = auth['info']['email']
+    email = auth['info']['email']||"#{auth['uid']}@github.example.com"
     
     if providers_user.nil?
       if current_user.nil?
