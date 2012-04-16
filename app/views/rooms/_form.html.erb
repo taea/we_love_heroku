@@ -1,34 +1,25 @@
-<%= form_for(@room, html:{class: 'form-horizontal'}) do |f| %>
-  <% if @room.errors.any? %>
- 
-    <div class="alert alert-block alert-error fade in">
-             <a class="close" data-dismiss="alert" href="#">&times;</a>
-      <h2><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h2>
 
-      <ul>
-      <% @room.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  
-  <% end %>
-<fieldset>
-  <div class="control-group">
-    <%= f.label t("activerecord.attributes.room.name", :default => "Name"), class: 'control-label'%>
-    <div class="controls">
-      <%= f.text_field :name %>
-    </div>
+<div class="clearfix">
+   <%= f.label :user_id, t("activerecord.attributes.room.user_id", :default => "User"), :class => :label %>
+  <div class="input">
+    <%= f.number_field :user_id, :class => 'number_field' %>
   </div>
-  <div class="control-group">
-    <%= f.label t("activerecord.attributes.room.description", :default => "Description"), class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, class: 'span5' %>
-    </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :name, t("activerecord.attributes.room.name", :default => "Name"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :name, :class => 'text_field' %>
   </div>
-  <div class="form-actions">
-    <%= f.submit 'save', class:['btn', 'btn-primary'] %>
-    <%= link_to 'cancel', root_path, class: 'btn'%>
+</div>
+
+<div class="clearfix">
+   <%= f.label :description, t("activerecord.attributes.room.description", :default => "Description"), :class => :label %>
+  <div class="input">
+    <%= f.text_area :description, :class => 'text_area' %>
   </div>
-</fieldset>
-<% end %>
+</div>
+<div class="form-actions">
+  <button class="btn primary" type="submit">Save</button> or
+	<%= link_to "Cancel", rooms_path %>
+</div>

@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :room do
     user_id 1
-    name "MyRoom"
-    description "It' my room!!!"
+    name "MyString"
+    description "MyText"
   end
 end
