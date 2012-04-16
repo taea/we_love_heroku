@@ -18,11 +18,11 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'fb_graph'
+gem 'thin'
 gem 'twitter'
 gem 'devise'
 group :test, :development do
   gem 'mysql2'
-  gem 'heroku'
   gem 'rspec-rails'
   gem 'spork', '~> 0.9.0.rc'
   gem 'guard'
@@ -34,8 +34,12 @@ group :test, :development do
   gem 'faker'
 end
 
+group :development do
+  gem 'heroku'
+  gem 'foreman'
+end
+
 group :production do
   gem 'pg'
-  gem 'thin'
   gem 'newrelic_rpm'
 end
