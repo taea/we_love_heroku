@@ -4,7 +4,9 @@ h1. we love heroku
 
 see http://welove.herokuapp.com
 
-h2. rails s
+h2. start server
+
+h3. rails s
 
 <pre>
 FB_ADMINS={your_facebook_id} \
@@ -16,6 +18,27 @@ GH_APP_ID={github_app_id} \
 GH_APP_SECRET={github_app_secret} \
 bundle exec rails s
 </pre>
+
+h3. foreman
+
+h4. .env
+
+<pre>
+touch .env 
+vim .env
+</pre>
+
+<pre>
+RACK_ENV=development
+FB_ADMINS=
+FB_APP_ID=
+FB_APP_SECRET=
+TW_APP_ID=
+TW_APP_SECRET=
+GH_APP_ID=
+GH_APP_SECRET=
+</pre>
+
 
 h2. test
 
