@@ -169,4 +169,12 @@ describe SitesController do
     end
   end
 
+  describe "GET image" do
+    before do
+      site = Site.create! valid_attributes
+      get :show, {:id => site.to_param}
+    end
+    it { response.should be_success }
+  end
+
 end

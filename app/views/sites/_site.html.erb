@@ -1,7 +1,7 @@
 <div class="row">
   <div class="span3">
     <%=link_to site.url, :class => 'thumbnail', :target => '_blank' do %>
-      <%=image_tag "http://capture.heartrails.com/large/delay=1?#{site.url}" %>
+      <%=image_tag image_site_path site %>
     <% end %>
   </div>
   <div class="span6">
