@@ -21,6 +21,7 @@ gem 'fb_graph'
 gem 'thin'
 gem 'twitter'
 gem 'devise'
+gem 'dalli'
 group :test, :development do
   gem 'mysql2'
   gem 'rspec-rails'
