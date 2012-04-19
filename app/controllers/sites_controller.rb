@@ -97,7 +97,7 @@ class SitesController < ApplicationController
   def image
     site = Site.find(params[:id])
     response.headers['Cache-Control'] = 'public, max-age=300'
-    data = Rails.cache.fetch("sites_#{site.id}_image", :expires_in => 1.day) do
+    data = Rails.cache.fetch("sites_#{site.id}_image", :expires_in => 10.minutes) do
       open("http://capture.heartrails.com/large/delay=1?#{site.url}", 'rb') {|f|f.read}
     end
     send_data data, :type => 'image/jpeg', :filename => "site_#{site.id}_capture.jpg"
