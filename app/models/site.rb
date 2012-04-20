@@ -45,9 +45,14 @@ class Site < ActiveRecord::Base
   def get_site
     begin
       open self.url
+      Rails.cache.delete self.image_cache_key
     rescue
       return false
     end
     return true
+  end
+
+  def image_cache_key
+    "sites_#{self.id}_image"
   end
 end
