@@ -50,6 +50,12 @@
      <%= f.text_field :hash_tag %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :scheduled_access, class: 'control-label' %>
+    <div class="controls">
+     <%= f.check_box :scheduled_access %>
+    </div>
+  </div>
   <div class="form-actions">
     <%= f.submit 'save', class:['btn', 'btn-primary'] %>
     <%= link_to 'cancel', root_path, class: 'btn'%>
