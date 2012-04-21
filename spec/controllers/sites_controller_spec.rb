@@ -28,12 +28,12 @@ describe SitesController do
   
   describe "GET index" do
     context 'no parameter' do
-      it "assigns all sites as @sites" do
-        site = Site.create! valid_attributes
+      before do
+        @site = Site.create! valid_attributes
         get :index, {}
-        assigns(:sites).should eq([site])
-        assigns(:pickups).should be_present
       end
+      it { assigns(:sites).should eq([@site]) }
+      it { assigns(:pickups).should be_instance_of Array }
     end
     context 'with keyword' do
       before do
