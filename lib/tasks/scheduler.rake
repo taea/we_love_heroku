@@ -3,7 +3,7 @@ task :get_site => :environment do
   Site.where(:scheduled_access => TRUE).all.each do|site|
     puts site.url
     begin
-      site.get_site
+      open site.url
     rescue
     end
   end

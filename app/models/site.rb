@@ -10,7 +10,6 @@ class Site < ActiveRecord::Base
   validates_url_format_of :repository_url, :allow_nil => true, :allow_blank => true
   
   belongs_to :user
-  before_save :get_site
   
   scope :search, lambda {|keyword| where(["
     name LIKE ? OR 
@@ -40,14 +39,5 @@ class Site < ActiveRecord::Base
     Rails.cache.fetch("model_site_pickups", :expires_in => 15.minutes) do
       Site.all.sort_by{rand}[0..2]
     end
-  end
-
-  def get_site
-    begin
-      open self.url
-    rescue
-      return false
-    end
-    return true
   end
 end
