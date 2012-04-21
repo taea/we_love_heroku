@@ -5,9 +5,7 @@ Gallery::Application.routes.draw do
     match '/users/login', {:action=>"login", :controller=>"users", :via => :get, :as => :new_user_session }
   end
 
-  resources :sites do
-    get :pickup, :on => :collection
-  end
+  resources :sites
   get '/users/current' => 'users#current', :as => :current_user
   get '/users/login' => 'users#login', :as => :login_user
   get '/users/:provider/:user_key' => 'users#show', :as => :user

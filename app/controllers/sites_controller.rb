@@ -8,6 +8,7 @@ class SitesController < ApplicationController
     @sites = @sites.search(params[:keyword]) if params[:keyword]
     @sites = @sites.page(params[:page]).per(15)
     
+    @pickups = Site.pickups
     respond_to do |format|
       format.html
       format.js
@@ -15,11 +16,6 @@ class SitesController < ApplicationController
     end
   end
   
-  # GET /sites/pickup
-  def pickup
-    @sites = Site.pickups
-  end
-
   # GET /sites/1
   # GET /sites/1.json
   def show

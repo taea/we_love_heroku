@@ -32,6 +32,7 @@ describe SitesController do
         site = Site.create! valid_attributes
         get :index, {}
         assigns(:sites).should eq([site])
+        assigns(:pickups).should be_present
       end
     end
     context 'with keyword' do
@@ -42,14 +43,6 @@ describe SitesController do
     end
   end
   
-  describe "GET pickup" do
-    before do
-      xhr :get, :pickup
-    end
-    it { response.should be_success }
-    it { assigns(:sites).should be_instance_of Array }
-  end
-
   describe "GET show" do
     it "assigns the requested site as @site" do
       site = Site.create! valid_attributes

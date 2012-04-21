@@ -9,9 +9,6 @@
   }
   %>
 <% end %>
-<% if params[:keyword].nil? %>
-  <% content_for :body_class, 'show_sites_pickup'%>
-<% end %>
 <%=render 'shared/sns_buttons', :site => Site.new(:name => 'we love heroku', :url => 'http://welove.herokuapp.com', :hash_tag => 'weloveheroku') %>
 <div class="hero-unit">
   <h1><%=t(".h1")%></h1>
@@ -22,6 +19,7 @@
 <h2><%=t(".random_pickups.h2")%></h2>
 </div>
 <ul id="pickup_sites" class="thumbnails">
+  <%=render 'pickup_sites', :sites => @pickups %>
 </ul>
 <% end %>
 <%=render 'sites/index', :sites => @sites %>
