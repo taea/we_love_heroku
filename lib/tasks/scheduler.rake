@@ -4,7 +4,8 @@ task :get_site => :environment do
     puts site.url
     begin
       open site.url
-    rescue
+    rescue => e
+      puts " #{e.message}"
     end
   end
 end
