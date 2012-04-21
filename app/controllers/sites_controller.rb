@@ -92,11 +92,4 @@ class SitesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  # GET /sites/1/image
-  def image
-    site = Site.find(params[:id])
-    response.headers['Cache-Control'] = 'public, max-age=300'
-    send_data open("http://capture.heartrails.com/large/delay=1?#{site.url}", 'rb') {|f|f.read}, :type => 'image/jpeg', :filename => "site_#{site.id}_capture.jpg"
-  end
 end

@@ -2,7 +2,7 @@
 <li class="span3">
   <div class="thumbnail">
     <%=link_to site.url, :target => '_blank' do %>
-      <%=image_tag image_site_path site %>
+      <%=image_tag "http://capture.heartrails.com/large/delay=1?#{site.url}" %>
     <% end %>
     <h5><%=site.name%></h5>
     <p>

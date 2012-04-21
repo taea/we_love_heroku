@@ -7,7 +7,6 @@ Gallery::Application.routes.draw do
 
   resources :sites do
     get :pickup, :on => :collection
-    get :image, :on => :member
   end
   get '/users/current' => 'users#current', :as => :current_user
   get '/users/login' => 'users#login', :as => :login_user
