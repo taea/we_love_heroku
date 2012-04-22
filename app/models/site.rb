@@ -1,3 +1,4 @@
+require 'resolv'
 class Site < ActiveRecord::Base
   validates_presence_of :name, :url, :creator
   validates_length_of :name, :minimum => 3, :maximum => 100
@@ -8,6 +9,7 @@ class Site < ActiveRecord::Base
   validates_uniqueness_of :url
   validates_url_format_of :url
   validates_url_format_of :repository_url, :allow_nil => true, :allow_blank => true
+  validate :url_is_heroku?  
   
   belongs_to :user
   
@@ -39,5 +41,19 @@ class Site < ActiveRecord::Base
     Rails.cache.fetch("model_site_pickups", :expires_in => 15.minutes) do
       Site.all.sort_by{rand}[0..2]
     end
+  end
+
+  private
+  def url_is_heroku?
+    return if self.url =~ /heroku(app)?\.com\/?/
+    return true if Rails.env.test?
+    if self.url =~ /http(?:s)?:\/\/([^\/]+)/
+      host = $1
+      ipaddress = Resolv.getaddress host
+      unless APP_CONFIG[:heroku][:custom_domain].include? ipaddress
+        errors.add :url, ' does not appear to be a valid heroku URL' 
+      end
+    end
+
   end
 end
