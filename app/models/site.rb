@@ -49,7 +49,13 @@ class Site < ActiveRecord::Base
     return true if Rails.env.test?
     if self.url =~ /http(?:s)?:\/\/([^\/]+)/
       host = $1
-      ipaddress = Resolv.getaddress host
+      begin
+        ipaddress = Resolv.getaddress host
+      rescue => e
+        logger.error e.message
+        errors.add :url, ' does not appear to be a valid heroku URL' 
+        return
+      end
       unless APP_CONFIG[:heroku][:custom_domain].include? ipaddress
         errors.add :url, ' does not appear to be a valid heroku URL' 
       end
