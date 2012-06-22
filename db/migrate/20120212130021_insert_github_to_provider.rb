@@ -1,9 +1,12 @@
 class InsertGithubToProvider < ActiveRecord::Migration
   def up
-    execute "INSERT INTO providers(id, name, created_at, updated_at)VALUES(3, 'github', NOW(), NOW())"
+    Provider.create do|p|
+      p.id = 3
+      p.name = 'github'
+    end
   end
 
   def down
-    execute "INSERT INTO providers(id, name, created_at, updated_at)VALUES(3, 'github', NOW(), NOW())"
+    Provider.where(:id => [3]).delete_all
   end
 end
