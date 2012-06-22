@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { Factory(:user) }
-  let(:new_user) { Factory.build(:new_user) }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:new_user) { FactoryGirl.build(:new_user) }
   let(:auth) {
     {
       'uid' => '123456',

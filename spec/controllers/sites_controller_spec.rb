@@ -19,8 +19,8 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe SitesController do
-  let(:user) { Factory(:user) }
-  let(:valid_attributes) { Factory.attributes_for(:site) }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:site) }
   before :each do
     sign_in user
     valid_attributes[:user_id] = user.id
