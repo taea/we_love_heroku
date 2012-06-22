@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.6'
+ruby '1.9.3'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,7 +23,7 @@ gem 'thin'
 gem 'twitter'
 gem 'devise'
 group :test, :development do
-  gem 'mysql2'
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'spork', '~> 0.9.0.rc'
   gem 'guard'
