@@ -57,7 +57,14 @@ class Site < ActiveRecord::Base
         return
       end
       unless APP_CONFIG[:heroku][:custom_domain].include? ipaddress
-        errors.add :url, ' does not appear to be a valid heroku URL' 
+        begin
+          cname = Resolv::DNS.new.getresource(host, Resolv::DNS::Resource::IN::ANY).name
+        rescue => e
+          logger.error e.message
+          errors.add :url, ' does not appear to be a valid heroku URL'
+          return
+        end
+        return if cname =~ /heroku(app|ssl)?\.com\/?/
       end
     end
 
