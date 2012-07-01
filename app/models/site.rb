@@ -1,5 +1,6 @@
 require 'resolv'
 class Site < ActiveRecord::Base
+  attr_accessible :user_id, :name, :url, :description, :creator, :hash_tag, :repository_url, :scheduled_access, :please_design
   validates_presence_of :name, :url, :creator
   validates_length_of :name, :minimum => 3, :maximum => 100
   validates_length_of :url, :minimum => 3, :maximum => 100
