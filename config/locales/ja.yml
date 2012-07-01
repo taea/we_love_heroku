@@ -1,9 +1,23 @@
 ja:
+  activerecord:
+    models:
+      site: "サイト"
+    attributes:
+      site:
+        name: "サイト名"
+        url: "URL"
+        description: "サイトの紹介"
+        repository_url: "github url等"
+        creator: "作者(twitter id等)"
+        hash_tag: "ハッシュタグ"
+        please_design: "デザイン募集中？"
+        scheduled_access: "1dyno向け定期アクセス"
   layouts:
     application:
       nav:
         home: "ホーム"
         site_add: "サイトを登録する"
+        please_design: "デザイン募集中"
         user: "マイページ"
         login: "ログイン"
         logout: "ログアウト"

@@ -34,8 +34,8 @@
           <a class="brand" href="/"><%=image_tag 'title.png', :alt => 'we love heroku', :size => '170x40' %></a>
           <div class="container nav-collapse">
             <ul class="nav">
-                <li class="<%=(request.path == root_path ? 'active': '')%>"><%= link_to t(".nav.home"), "/"  %></li>
                 <li class="<%=(request.path == new_site_path ? 'active': '')%>"><%= link_to t(".nav.site_add"), new_site_path  %></li>
+                <li class="<%=(request.path == sites_path && params[:please_design] == '1' ? 'active': '')%>"><%= link_to t(".nav.please_design"), sites_path(:please_design => '1')  %></li>
             </ul>
             <%= render 'sites/search_form' %>
             <ul class="nav pull-right">

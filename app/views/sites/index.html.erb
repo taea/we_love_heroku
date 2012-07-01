@@ -14,7 +14,7 @@
   <h1><%=t(".h1")%></h1>
   <%=t(".description_html")%>
 </div>
-<% if params[:keyword].nil? %>
+<% if params[:keyword].nil? && params[:please_design].nil? %>
 <div class="page-header">
 <h2><%=t(".random_pickups.h2")%></h2>
 </div>

@@ -1,9 +1,23 @@
 en:
+  activerecord:
+    models:
+      site: "Site"
+    attributes:
+      site:
+        name: "Name"
+        url: "URL"
+        description: "Introduce your site"
+        repository_url: "github url etc."
+        creator: "Creator"
+        hash_tag: "twitter hash tag"
+        please_design: "please design?"
+        scheduled_access: "scheduled access for 1dyno"
   layouts:
     application:
       nav:
         home: "Home"
         site_add: "Add site"
+        please_design: "Pleaes Design!"
         user: "My Page"
         login: "Login"
         logout: "Logout"

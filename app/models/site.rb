@@ -24,6 +24,7 @@ class Site < ActiveRecord::Base
     "%#{keyword}%", "%#{keyword}%", "%#{keyword}%",
     "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"
   ])}
+  scope :please_designed, where(:please_design => TRUE)
   
   def hash_tags
     '#' + self.hash_tag.split(' ').join(' #')

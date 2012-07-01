@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420045559) do
+ActiveRecord::Schema.define(:version => 20120701153705) do
 
   create_table "providers", :force => true do |t|
     t.string   "name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20120420045559) do
     t.string   "repository_url"
     t.integer  "user_id"
     t.boolean  "scheduled_access"
+    t.boolean  "please_design"
   end
 
   add_index "sites", ["user_id"], :name => "idx_user_id_on_sites"

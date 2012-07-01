@@ -30,6 +30,9 @@
   <dd><%= render 'users/user', :user => @site.user %></dd>
   <% end %>
 </dl>
+<% if @site.please_design? %>
+  <span class="badge badge-important">Please Design!!!</span>
+<% end %>
 </section>
 
 <% if @same_creators.present? %>

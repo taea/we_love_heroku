@@ -6,6 +6,7 @@ class SitesController < ApplicationController
   def index
     @sites = Site.order('updated_at DESC')
     @sites = @sites.search(params[:keyword]) if params[:keyword]
+    @sites = @sites.please_designed if params[:please_design]
     @sites = @sites.page(params[:page]).per(15)
     
     @pickups = Site.pickups
