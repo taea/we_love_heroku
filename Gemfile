@@ -25,15 +25,25 @@ gem 'devise'
 gem 'figaro'
 group :test, :development do
   gem 'sqlite3'
-  gem 'rspec-rails'
-  gem 'spork', '~> 0.9.0.rc'
-  gem 'guard'
-  gem 'guard-spork'
-  gem 'guard-rspec'
-  gem 'rb-fsevent', :require => false
-  gem 'taps'
+  gem 'brakeman'
+  gem 'capybara'
+  gem 'database_cleaner', '1.0.0.RC1'
+  gem 'delorean'
+  gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'guard-annotate'
+  gem 'guard-rspec', require: false
+  gem 'guard-sprockets2'
+  gem 'launchy'
+  gem 'nokogiri', '1.5.10' # for :eq support
+  gem 'poltergeist'
+  gem 'rails-db-resetup'
+  gem 'rb-fsevent', require: RUBY_PLATFORM.downcase =~ /darwin/ ? 'rb-fsevent' : false
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'spring-commands-rspec'
+  gem 'spring', github: 'jonleighton/spring'
 end
 
 group :development do
