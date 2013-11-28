@@ -1,91 +1,55 @@
-# We love heroku
+# we_love_heroku tempate application for rails4
 
-[![Build Status](https://travis-ci.org/ppworks/we_love_heroku.png)](https://travis-ci.org/ppworks/we_love_heroku)
+## Setup for development
 
-# How to start
-
-## for local
-
-### Create Database
+rename Guardfile.example to Guardfile
 
 ```
-rake db:setup
+$ cp Guardfile.example Guardfile
 ```
 
-### Copy .env.sample to .env
+## External API Credential
 
 ```
-cp .env.sample .env
+cp config/application.yml.example config/application.yml
 ```
 
-You should create  at least one app(Facebook app or Twitter app or Github app).
-
-### Create Facebook app
-
-* Vist [Facebook Developers](https://developers.facebook.com/apps)
-* Click **Create New App**
-* Fill in **App Name**
-
-```example
-App Name: we love heroku for local
-```
-
-* Set your **App ID/API Key** to **FB_APP_ID** in .env file.
-* Set your **App Secret** to **FB_APP_SECRET** in .env file.
-
-```example
-FB_APP_ID=123456789
-FB_APP_SECRET=abcdefg
-```
-
-### Create Twitter app
-
-* Visit [My applications](https://dev.twitter.com/apps)
-* Click **Create a new application**
-* Fill in **Name**, **Description**, **Website**, and **Callback URL**(Although it has not required mark)
-
-```example
-Name: we love heroku local
-Description: it's local test application for me.
-Website: http://localhost:3000
-Callback URL: http://localhost:3000
-```
-
-* Set your **Consumer key** to **TW_APP_ID** in .env file.
-* Set your **Consumer secret** to **TW_APP_SECRET** in .env file.
-
-```example
-TW_APP_ID=1a2b3c4d5d
-TW_APP_SECRET=a1b2c3d
-```
-
-### Create Github app
-
-* Visit [Register a new OAuth application](https://github.com/settings/applications/new)
-* Fill in **Application Name**, **Main URL**, **Callback URL**
-
-```example
-Application Name: weloveheroku-local
-Main URL: http://localhost:3000
-Callback URL: http://localhost:3000/users/auth/github/callback
-```
-
-* Set your **Client ID** to **GH_APP_ID** in .env file.
-* Set your **Client Secret** to **GH_APP_SECRET** in .env file.
-
-```example
-GH_APP_ID=1a2b3c4d5d
-GH_APP_SECRET=a1b2c3d
-```
-
-### Start server
+Fill in api credential
 
 ```
-foreman start
+rake secret
 ```
 
-### Access localhost
+Fill in SECRET_TOKEN by the key above result.
+
+## Start foreman
 
 ```
-open http://loalhost:3000
+$ foreman start -f Procfile.development
+```
+
+## heroku
+
+```
+heroku create we_love_heroku
+git remote rename heroku we_love_heroku
+git push we_love_heroku master
+heroku addons:add newrelic
+heroku addons:add pgbackups:auto-month
+heroku addons:add mandrill:starter
+rake figaro:heroku\[we_love_heroku\]
+```
+
+### staging
+
+```
+heroku create we_love_heroku-stg
+git remote set-url we_love_heroku-stg git@heroku.com:we_love_heroku-stg.git
+git push we_love_heroku master
+heroku addons:add newrelic
+heroku addons:add pgbackups:auto-month
+heroku addons:add mandrill:starter
+heroku addons:add mailtrap
+heroku config:set RACK_ENV=staging RAILS_ENV=staging
+rake figaro:heroku\[we_love_heroku-stg\]
 ```

@@ -27,10 +27,10 @@ module FeatureMacros
     back_path = page.current_path
     auth = 
     {
-      'uid' => user.connections.last.try(:uid),
+      'uid' => '123456',
       'info' => {
         'name' => user.name,
-        'nickname' => user.nickname,
+        'nickname' => user.name,
         'image' => user.image,
         'email' => user.email,
       },
@@ -70,14 +70,5 @@ module FeatureMacros
 
   def reload
     visit page.current_path if page.current_path
-  end
-
-  def wait_for_ajax
-    Timeout.timeout(Capybara.default_wait_time) do
-      loop do
-        active = page.evaluate_script('jQuery.active')
-        break if active == 0
-      end
-    end
   end
 end

@@ -1,17 +1,23 @@
 source 'https://rubygems.org'
-
-gem 'rails', '3.2.15'
 ruby '2.0.0'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
+gem 'rails', '4.0.0'
 gem 'jquery-rails'
-gem "twitter-bootstrap-rails", '2.1.0'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'jbuilder', '~> 1.2'
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'haml-rails'
+gem 'figaro'
+gem 'pg'
+gem 'simple_form', '>= 3.0.0.rc'
+gem 'active_decorator'
+gem 'rails-i18n'
+gem 'thin'
+gem 'compass-rails', github: 'Compass/compass-rails', branch: 'rails4-hack'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 gem 'rails_autolink'
 gem 'kaminari'
 gem 'omniauth'
@@ -19,12 +25,36 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'fb_graph'
-gem 'thin'
 gem 'twitter'
 gem 'devise'
-gem 'figaro'
+
+group :doc do
+  gem 'sdoc', require: false
+end
+
+group :development do
+  # Debugs
+  gem 'annotate', git: 'git://github.com/ctran/annotate_models.git'
+  gem 'awesome_print'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'bullet'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'letter_opener'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
+  gem 'quiet_assets'
+  gem 'rack-mini-profiler'
+  gem 'tapp'
+  gem 'view_source_map'
+  gem 'xray-rails'
+end
+
 group :test, :development do
-  gem 'sqlite3'
+  # TDD
   gem 'brakeman'
   gem 'capybara'
   gem 'database_cleaner', '1.0.0.RC1'
@@ -42,15 +72,10 @@ group :test, :development do
   gem 'rb-fsevent', require: RUBY_PLATFORM.downcase =~ /darwin/ ? 'rb-fsevent' : false
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'spring-commands-rspec'
   gem 'spring', github: 'jonleighton/spring'
 end
 
-group :development do
-  gem 'foreman'
-end
-
-group :production do
-  gem 'pg'
+group :production, :staging do
+  gem 'rails_12factor'
   gem 'newrelic_rpm'
 end
