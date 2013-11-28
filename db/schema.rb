@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128062618) do
+ActiveRecord::Schema.define(version: 20131128064352) do
+
+  create_table "connections", force: true do |t|
+    t.integer  "provider_id"
+    t.integer  "user_id",       null: false
+    t.string   "uid",           null: false
+    t.string   "access_token",  null: false
+    t.string   "refresh_token"
+    t.string   "secret_token"
+    t.string   "name",          null: false
+    t.string   "email"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "nickname"
+  end
+
+  add_index "connections", ["provider_id", "uid"], name: "idx_provider_id_user_key_on_providers_users", unique: true, using: :btree
+  add_index "connections", ["user_id"], name: "idx_user_id_on_providers_users", using: :btree
 
   create_table "providers", force: true do |t|
     t.string   "name"
@@ -20,23 +39,6 @@ ActiveRecord::Schema.define(version: 20131128062618) do
   end
 
   add_index "providers", ["name"], name: "idx_name_on_providers", unique: true, using: :btree
-
-  create_table "providers_users", force: true do |t|
-    t.integer  "provider_id",   null: false
-    t.integer  "user_id",       null: false
-    t.string   "user_key",      null: false
-    t.string   "access_token",  null: false
-    t.string   "refresh_token"
-    t.string   "secret"
-    t.string   "name",          null: false
-    t.string   "email"
-    t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "providers_users", ["provider_id", "user_key"], name: "idx_provider_id_user_key_on_providers_users", unique: true, using: :btree
-  add_index "providers_users", ["user_id"], name: "idx_user_id_on_providers_users", using: :btree
 
   create_table "sites", force: true do |t|
     t.string   "name"

@@ -28,6 +28,7 @@ gem 'fb_graph'
 gem 'twitter'
 gem 'devise'
 gem 'validates_email_format_of'
+gem 'enumerize'
 
 group :doc do
   gem 'sdoc', require: false
