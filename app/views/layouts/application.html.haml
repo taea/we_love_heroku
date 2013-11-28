@@ -10,10 +10,8 @@
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
 
-    .navbar.navbar-default.navbar-fixed-top
-      = render 'navigation'
-    .container
-      = render 'messages'
-      = yield
+    = render 'navigation'
+    = render 'messages'
+    = yield
 
     %footer

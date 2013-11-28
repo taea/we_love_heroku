@@ -7,5 +7,7 @@ WeLoveHeroku::Application.routes.draw do
   authenticated :user do
     root 'pages#index', as: :authenticated_user_root
   end
+
+  get 'signin' => 'pages#signin'
   root to: 'pages#index'
 end

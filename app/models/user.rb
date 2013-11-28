@@ -35,4 +35,12 @@ class User < ActiveRecord::Base
   def me?(user)
     return self.id == user.id
   end
+
+  def connected_all?
+    self.connections.size === Connection::PROVIDERS.size
+  end
+
+  def connected?(provider)
+    self.connections.where(provider: provider).exists?
+  end
 end

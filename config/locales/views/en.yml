@@ -1,0 +1,13 @@
+en:
+  nav:
+    common:
+      back: 'Back'
+      cancel: 'Cancel'
+      new: 'New'
+      edit: 'Edit'
+      show: 'Detail'
+      delete: 'Delete'
+      delete_confirm: 'Really delete it?'
+      sign_in: 'Sign in'
+      sign_out: 'Sign out'
+      post: 'Post'

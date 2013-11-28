@@ -1,0 +1,15 @@
+en:
+  application:
+    signin_button:
+      description:
+        new: "Login with facebook or twitter account to manage your sites."
+        add: "you can connected other provider's account."
+      facebook:
+        new: "Login with Facebook account"
+        add: "Connect with Facebook account"
+      twitter:
+        new: "Login with Twitter account"
+        add: "Connect with Twitter account"
+      github:
+        new: "Login with Github account"
+        add: "Connect with Github account"
