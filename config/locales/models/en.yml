@@ -9,6 +9,16 @@ en:
         image: 'User image'
         locale: 'Locale Setting'
         content: 'Self-introduction'
+      site:
+        name: 'Site name'
+        url: 'URL'
+        description: 'Description'
+        creator: 'Creator'
+        hash_tag: 'Twitter hashtag'
+        repository_url: 'Repository URL'
+        user: 'Registered user'
+        user_id: 'Registered user'
+        please_design: 'Please design!!!'
     errors:
       models:
         user:

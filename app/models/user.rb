@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   devise :rememberable, :trackable, :omniauthable
   has_many :connections, dependent: :delete_all
+  has_many :sites
 
   validates :email, email_format: {allow_nil: true, allow_blank: true}
 

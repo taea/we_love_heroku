@@ -1,19 +1,21 @@
 - if !user_signed_in? || !current_user.connected_all?
-  %section.login
-    %p.well= t(".description.#{add_or_new}")
-    %ul.unstyled
-      - if !user_signed_in? || !current_user.connected?(:facebook)
-        %li
-          = link_to user_omniauth_authorize_path(:facebook), class: 'btn btn-primary btn-facebook' do
-            %i.icon-white.icon-plus
-            = t(".facebook.#{add_or_new}")
-      - if !user_signed_in? || !current_user.connected?(:twitter)
-        %li
-          = link_to user_omniauth_authorize_path(:twitter), class: 'btn btn-info btn-twitter' do
-            %i.icon-white.icon-plus
-            = t(".twitter.#{add_or_new}")
-      - if !user_signed_in? || !current_user.connected?(:github)
-        %li
-          = link_to user_omniauth_authorize_path(:github), class: 'btn btn-default btn-github' do
-            %i.icon-plus
-            = t(".github.#{add_or_new}")
+  .panel.panel-primary
+    .panel-heading= t('nav.common.sign_in')
+    .panel-body
+      %p= t(".description.#{add_or_new}")
+      %ul.providers.list-unstyled
+        - if !user_signed_in? || !current_user.connected?(:facebook)
+          %li.pull-left
+            = link_to user_omniauth_authorize_path(:facebook), class: 'btn btn-primary btn-facebook' do
+              %i.icon-white.icon-plus
+              = t(".facebook.#{add_or_new}")
+        - if !user_signed_in? || !current_user.connected?(:twitter)
+          %li.pull-left
+            = link_to user_omniauth_authorize_path(:twitter), class: 'btn btn-info btn-twitter' do
+              %i.icon-white.icon-plus
+              = t(".twitter.#{add_or_new}")
+        - if !user_signed_in? || !current_user.connected?(:github)
+          %li.pull-left
+            = link_to user_omniauth_authorize_path(:github), class: 'btn btn-default btn-github' do
+              %i.icon-plus
+              = t(".github.#{add_or_new}")

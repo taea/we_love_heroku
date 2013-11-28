@@ -1,0 +1,25 @@
+en:
+  sites:
+    welcome:
+      title: 'The gallery powered by heroku'
+      body: ''
+      new: 'Add new site'
+    index:
+      title: 'Sites powered by heroku'
+    pickups:
+      title: 'Pickup'
+    show:
+      same_creators_title: "%{creator}'s web services"
+    form:
+      hint:
+        creator: 'Please fill creator ex) ppworks'
+        description: "Please fill site's description"
+        hash_tag: 'Without # ex)weloveheroku ppworks'
+        repository_url: 'Please fill repository URL if public'
+        please_design: 'Check if you want to be designed it'
+    create:
+      created: 'Site created'
+    update:
+      updated: 'Site updated'
+    destroy:
+      destroyed: 'Site destroyed'

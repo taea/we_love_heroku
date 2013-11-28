@@ -1,0 +1,9 @@
+.page-header
+  %h2= title
+#sites
+  - if sites.present?
+    = paginate sites
+    %ul.list-unstyled.thumbnails
+      = content_tag_for(:li, sites) do |site|
+        = render 'sites/site', :site => site
+    = paginate sites

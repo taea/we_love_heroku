@@ -5,9 +5,11 @@ WeLoveHeroku::Application.routes.draw do
   end
 
   authenticated :user do
-    root 'pages#index', as: :authenticated_user_root
+    root 'sites#index', as: :authenticated_user_root
   end
 
+  resources :sites
+
   get 'signin' => 'pages#signin'
-  root to: 'pages#index'
+  root to: 'sites#index'
 end

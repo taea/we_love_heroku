@@ -26,6 +26,7 @@ describe User do
 
   describe 'relations' do
     it { should have_many(:connections) }
+    it { should have_many(:sites) }
   end
 
   describe '.authentication' do

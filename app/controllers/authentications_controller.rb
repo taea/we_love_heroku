@@ -5,7 +5,7 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
       sign_in(@user)
       if @user.persisted?
         flash[:notice] = t('devise.omniauth_callbacks.success', kind: provider)
-        redirect_to authenticated_user_root_path
+        sign_in_and_redirect @user, event: :authentication
       else
         flash[:notice] = t('devise.omniauth_callbacks.failure', kind: provider, reason: 'User create error')
         redirect_to root_path

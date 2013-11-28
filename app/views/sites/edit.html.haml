@@ -1,0 +1,12 @@
+.container
+  .row
+    .col-sm-9
+      = render('form')
+    .col-sm-3
+      .panel.panel-danger
+        .panel-heading= t('nav.common.delete')
+        .panel-body
+          %p= t('.delete_description')
+          = link_to site_path(@site), class: 'btn btn-danger btn-block btn-delete', method: :delete, data: {confirm: t('nav.common.delete_confirm')} do
+            %i.glyphicon.glyphicon-trash.glyphicon-white
+            = t('nav.common.delete')
