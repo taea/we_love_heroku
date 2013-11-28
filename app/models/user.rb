@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :rememberable, :trackable, :omniauthable
   has_many :connections, dependent: :delete_all
 
-  validates :email, email_format: {allow_nil: true}
+  validates :email, email_format: {allow_nil: true, allow_blank: true}
 
   class << self
     def authentication(auth_hash, current_user = nil)
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
       connection = Connection.where(provider: params[:provider], uid: params[:uid]).first_or_initialize
       user = current_user ? current_user : connection.user
-      user = User.create(name: params[:name], image: params[:image]) unless user
+      user = User.create!(name: params[:name], image: params[:image]) unless user
 
       params[:user] = user
       connection.update_attributes(params)

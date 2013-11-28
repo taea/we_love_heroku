@@ -47,11 +47,14 @@ RSpec.configure do |config|
   # For capybara
   require 'capybara/rspec'
   require 'capybara/poltergeist'
+  Capybara.register_driver :rack_test do |app|
+      Capybara::RackTest::Driver.new(app, headers: {'HTTP_ACCEPT_LANGUAGE' => 'ja-JP'})
+  end
   Capybara.register_driver :poltergeist do |app|
-    Capybara::Poltergeist::Driver.new(app, timeout: 120)
+    Capybara::Poltergeist::Driver.new(app, timeout: 120, headers: {'HTTP_ACCEPT_LANGUAGE' => 'ja-JP'})
   end
   Capybara.javascript_driver = :poltergeist
-  
+
   # For database cleaner
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128064352) do
+ActiveRecord::Schema.define(version: 20131128072535) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "connections", force: true do |t|
     t.integer  "provider_id"
@@ -61,7 +64,6 @@ ActiveRecord::Schema.define(version: 20131128064352) do
     t.string   "image",                             null: false
     t.string   "default_provider_id", default: "1"
     t.string   "email",               default: ""
-    t.string   "encrypted_password",  default: "",  null: false
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",       default: 0
     t.datetime "current_sign_in_at"

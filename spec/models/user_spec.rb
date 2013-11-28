@@ -77,7 +77,7 @@ describe User do
         context 'connectionがない' do
           let(:new_user) { create(:user) }
           before do
-            User.stub(:create).and_return(new_user)
+            User.stub(:create!).and_return(new_user)
           end
           it { should eq new_user }
           it { should be_instance_of User }
