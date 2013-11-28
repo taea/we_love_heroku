@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        name: 'ユーザー名'
+        email: 'メールアドレス'
+        image: 'ユーザー画像'
+        locale: '言語設定'
+        content: '自己紹介文'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              email_format: '形式が不適切です'

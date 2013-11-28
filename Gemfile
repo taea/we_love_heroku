@@ -27,6 +27,7 @@ gem 'omniauth-github'
 gem 'fb_graph'
 gem 'twitter'
 gem 'devise'
+gem 'validates_email_format_of'
 
 group :doc do
   gem 'sdoc', require: false

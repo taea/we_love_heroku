@@ -1,0 +1,17 @@
+en:
+  activerecord:
+    models:
+      user: 'User'
+    attributes:
+      user:
+        name: 'User name'
+        email: 'E-mail Address'
+        image: 'User image'
+        locale: 'Locale Setting'
+        content: 'Self-introduction'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              email_format: 'does not appear to be a valid e-mail address'
