@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
-ruby '1.9.3'
+gem 'rails', '3.2.15'
+ruby '2.0.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails", '2.1.0'
@@ -22,21 +22,31 @@ gem 'fb_graph'
 gem 'thin'
 gem 'twitter'
 gem 'devise'
+gem 'figaro'
 group :test, :development do
   gem 'sqlite3'
-  gem 'rspec-rails'
-  gem 'spork', '~> 0.9.0.rc'
-  gem 'guard'
-  gem 'guard-spork'
-  gem 'guard-rspec'
-  gem 'rb-fsevent', :require => false
-  gem 'taps'
+  gem 'brakeman'
+  gem 'capybara'
+  gem 'database_cleaner', '1.0.0.RC1'
+  gem 'delorean'
+  gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'guard-annotate'
+  gem 'guard-rspec', require: false
+  gem 'guard-sprockets2'
+  gem 'launchy'
+  gem 'nokogiri', '1.5.10' # for :eq support
+  gem 'poltergeist'
+  gem 'rails-db-resetup'
+  gem 'rb-fsevent', require: RUBY_PLATFORM.downcase =~ /darwin/ ? 'rb-fsevent' : false
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'spring-commands-rspec'
+  gem 'spring', github: 'jonleighton/spring'
 end
 
 group :development do
-  gem 'heroku'
   gem 'foreman'
 end
 
