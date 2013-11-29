@@ -8,6 +8,8 @@ ja:
       title: '登録されているサイト'
     pickups:
       title: 'ピックアップ'
+    site:
+      detail: '詳細を見る'
     show:
       same_creators_title: "%{creator}さんの他のサービス"
     edit:

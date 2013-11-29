@@ -3,7 +3,7 @@
 #sites
   - if sites.present?
     = paginate sites
-    %ul.list-unstyled.thumbnails
+    %ul.list-unstyled.thumbnails.sites
       = content_tag_for(:li, sites) do |site|
         = render 'sites/site', :site => site
     = paginate sites

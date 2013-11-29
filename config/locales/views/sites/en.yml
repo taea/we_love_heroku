@@ -8,6 +8,8 @@ en:
       title: 'Sites powered by heroku'
     pickups:
       title: 'Pickup'
+    site:
+      detail: 'Show detail'
     show:
       same_creators_title: "%{creator}'s web services"
     form:

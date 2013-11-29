@@ -1,4 +1,9 @@
 = render('welcome')
 .container
   = render('pickups')
-  = render('sites', sites: @sites, title: t('.title'))
+  .row
+    .col-sm-9
+      = render('sites', sites: @sites, title: t('.title'))
+    .col-sm-3
+      .twitter-widget
+        = render('twitter_widget', search_key: '#weloveheroku')
