@@ -13,3 +13,5 @@ ja:
       github:
         new: "Githubアカウントでログイン"
         add: "Githubアカウントを追加"
+    please_design:
+      button: 'デザイン募集中サイトを表示する'

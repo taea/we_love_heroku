@@ -8,7 +8,6 @@
       description: "Share your site on Heroku!It's gallery that web service powered by Heroku."}
 = render('welcome')
 .container
-  = render 'sns_buttons', site: Site.new(name: 'we love heroku', url: 'http://welove.herokuapp.com', hash_tag: 'weloveheroku')
   = render('sites/pickups')
   .row
     .col-sm-9

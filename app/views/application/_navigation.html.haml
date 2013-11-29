@@ -11,14 +11,9 @@
       .navbar-form.navbar-left.search_poem{role: "search"}
         .form-group
           = render('sites/search_form')
-      %ul.nav.navbar-nav.nav-left.nav-pills
-        %li
-          = link_to sites_path(q: {please_design_eq: true}) do
-            %i.glyphicon.glyphicon-filter
-            = t('nav.sites.please_design')
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          %li.dropdown
+          %li.dropdown.user
             = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
               = image_tag(current_user.image, alt: current_user.name, class: 'img-circle', size: '40x40')
               = "#{current_user.name}"

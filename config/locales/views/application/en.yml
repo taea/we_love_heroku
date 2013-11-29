@@ -13,3 +13,5 @@ en:
       github:
         new: "Login with Github account"
         add: "Connect with Github account"
+    please_design:
+      button: 'Show site which wanted design'

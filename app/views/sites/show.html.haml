@@ -7,10 +7,10 @@
     %small
       = link_to(@site.url, target: '_blank') do
         = @site.url
-  - if user_signed_in? && @site.user.try(:me?, current_user)
-    = link_to edit_site_path(@site), class: 'btn btn-primary pull-right btn-edit' do
-      %i.glyphicon.glyphicon-pencil.glyphicon-white
-      = t('nav.common.edit')
+    - if user_signed_in? && @site.user.try(:me?, current_user)
+      = link_to edit_site_path(@site), class: 'btn btn-primary btn-edit' do
+        %i.glyphicon.glyphicon-pencil.glyphicon-white
+        = t('nav.common.edit')
 
   .row
     .col-sm-4
