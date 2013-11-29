@@ -12,5 +12,9 @@ ja:
       sign_out: 'ログアウト'
       post: '投稿する'
       actions: '管理ツール'
+      search: '検索する'
     users:
       show: 'ユーザーページ'
+    sites:
+      new: 'サービスを登録する'
+      please_design: 'デザイン募集中サイトを表示する'

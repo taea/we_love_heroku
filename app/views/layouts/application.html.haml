@@ -9,7 +9,7 @@
         = csrf_meta_tags
         = google_analytics(ENV['GA'])
         = yield(:head)
-  %body{class: "#{controller_name} #{action_name}"}
+  %body{class: yield(:body_class)}
 
     = render 'navigation'
     = render 'messages'

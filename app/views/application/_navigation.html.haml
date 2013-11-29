@@ -8,6 +8,14 @@
       = link_to root_path, class: 'navbar-brand' do
         we love heroku
     .collapse.navbar-collapse
+      .navbar-form.navbar-left.search_poem{role: "search"}
+        .form-group
+          = render('sites/search_form')
+      %ul.nav.navbar-nav.nav-left.nav-pills
+        %li
+          = link_to sites_path(q: {please_design_eq: true}) do
+            %i.glyphicon.glyphicon-filter
+            = t('nav.sites.please_design')
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li.dropdown

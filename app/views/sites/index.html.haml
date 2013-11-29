@@ -1,16 +1,11 @@
-- content_for :head do
-  = auto_discovery_link_tag :atom, sites_path(format: :atom)
-  = render 'og_graph', {title: 'we love heroku',
-      type: "website",
-      url: root_url,
-      image: 'http://welove.herokuapp.com/assets/weloveheroku.png',
-      description: "Share your site on Heroku!It's gallery that web service powered by Heroku."}
-= render('welcome')
+- content_for(:body_class, 'sites')
 .container
-  = render('pickups')
   .row
     .col-sm-9
       = render('sites', sites: @sites, title: t('.title'))
     .col-sm-3
+      = link_to new_site_path, class: 'btn btn-primary btn-block' do
+        %i.glyphicon.glyphicon-edit.glyphicon-white
+        = t('nav.sites.new')
       .twitter-widget
         = render('twitter_widget', search_key: '#weloveheroku')

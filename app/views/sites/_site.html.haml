@@ -4,6 +4,8 @@
       = site_thumnail(site.url)
   .col-sm-9
     %h3
+      - if site.please_design?
+        %span.badge.badge-important= Site.human_attribute_name(:please_design)
       = link_to site.name, site
     = simple_format auto_link(truncate(site.description, length: 300), link: :urls, html: {target: '_blank'})
     %p= link_to 'more...', site_path(site)

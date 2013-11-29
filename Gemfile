@@ -31,6 +31,7 @@ gem 'validates_email_format_of'
 gem 'enumerize'
 gem 'dekiru'
 gem 'validates_url_format_of'
+gem 'ransack'
 
 group :doc do
   gem 'sdoc', require: false

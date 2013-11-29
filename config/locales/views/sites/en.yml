@@ -1,9 +1,5 @@
 en:
   sites:
-    welcome:
-      title: 'The gallery powered by heroku'
-      body: ''
-      new: 'Add new site'
     index:
       title: 'Sites powered by heroku'
     pickups:
@@ -27,3 +23,5 @@ en:
       updated: 'Site updated'
     destroy:
       destroyed: 'Site destroyed'
+    search_form:
+      placeholder: 'Keyword'

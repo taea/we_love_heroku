@@ -12,5 +12,9 @@ en:
       sign_out: 'Sign out'
       post: 'Post'
       actions: 'Actions'
+      search: 'Search'
     users:
       show: 'User page'
+    sites:
+      new: 'Add new site'
+      please_design: 'Filter sites which please design!!!'

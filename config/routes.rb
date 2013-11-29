@@ -4,13 +4,9 @@ WeLoveHeroku::Application.routes.draw do
     delete '/sessions' => 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  authenticated :user do
-    root 'sites#index', as: :authenticated_user_root
-  end
-
   resources :sites
   resources :users, only: [:show]
 
   get 'signin' => 'pages#signin'
-  root to: 'sites#index'
+  root to: 'pages#top'
 end

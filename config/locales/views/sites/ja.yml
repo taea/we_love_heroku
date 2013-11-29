@@ -1,9 +1,5 @@
 ja:
   sites:
-    welcome:
-      title: 'heroku で作成したサービスを登録するギャラリー'
-      body: 'サービスを登録したり、いいね！して応援しよう。'
-      new: 'サービスを登録する'
     index:
       title: '登録されているサイト'
     pickups:
@@ -29,3 +25,5 @@ ja:
       updated: 'サイトを更新しました'
     destroy:
       destroyed: 'サイトを削除しました'
+    search_form:
+      placeholder: 'キーワードで検索'

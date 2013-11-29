@@ -3,7 +3,9 @@ class SitesController < ApplicationController
   respond_to :html, :json, :atom
 
   def index
-    @sites = Site.order('id DESC').page(params[:page]).per(params[:per])
+    @search = Site.search(params[:q])
+    @sites = @search.result.page(params[:page]).per(params[:per])
+    @sites = @sites.order('id DESC') if @search.sorts.empty?
     respond_with @sites
   end
 
