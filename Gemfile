@@ -29,6 +29,7 @@ gem 'twitter'
 gem 'devise'
 gem 'validates_email_format_of'
 gem 'enumerize'
+gem 'dekiru'
 
 group :doc do
   gem 'sdoc', require: false

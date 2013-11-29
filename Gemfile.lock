@@ -119,6 +119,8 @@ GEM
     database_cleaner (1.0.0.RC1)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
+    dekiru (0.0.10)
+      http_accept_language (>= 2.0.0)
     delorean (2.1.0)
       chronic
     devise (3.2.2)
@@ -185,6 +187,7 @@ GEM
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
+    http_accept_language (2.0.0)
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
     httpclient (2.3.4.1)
@@ -413,6 +416,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.1)
   compass-rails!
   database_cleaner (= 1.0.0.RC1)
+  dekiru
   delorean
   devise
   enumerize
