@@ -1,4 +1,4 @@
-= link_to_unless_current(image_tag(user.image, id: "user_#{user.id}", class: 'img-circle user'), user_path(user),
+= link_to_unless_current(image_tag(user.image, id: "user_#{user.id}", class: 'img-circle user', size: '50x50'), user_path(user),
     rel: 'tooltip',
     data: {title: user.name,placement: 'right'},
     title: user.name)
