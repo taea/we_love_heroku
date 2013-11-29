@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   before_filter :authenticate_user!, only: [:edit, :update, :destroy]
-  respond_to :html, :json
+  respond_to :html, :json, :atom
 
   def index
     @sites = Site.order('id DESC').page(params[:page]).per(params[:per])
