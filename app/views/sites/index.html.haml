@@ -1,3 +1,9 @@
+- content_for :head do
+  = render 'og_graph', {title: 'we love heroku',
+      type: "website",
+      url: root_url,
+      image: 'http://welove.herokuapp.com/assets/weloveheroku.png',
+      description: "Share your site on Heroku!It's gallery that web service powered by Heroku."}
 = render('welcome')
 .container
   = render('pickups')

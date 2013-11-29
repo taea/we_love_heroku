@@ -5,7 +5,6 @@
   .col-sm-9
     %h3
       = link_to site.name, site
-    = render 'sns_buttons', :site => site
     = simple_format auto_link(truncate(site.description, length: 300), link: :urls, html: {target: '_blank'})
     %p= link_to 'more...', site_path(site)
     = link_to t('.detail'), site_path(site), class: 'btn btn-default btn-lg'

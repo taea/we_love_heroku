@@ -1,4 +1,5 @@
 .container
+  = render 'sns_buttons', :site => @site
   %h1
     - if @site.please_design?
       %span.badge.badge-important= Site.human_attribute_name(:please_design)
