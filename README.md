@@ -1,4 +1,6 @@
-# we_love_heroku tempate application for rails4
+# we_love_heroku
+
+[![Build Status](https://travis-ci.org/ppworks/we_love_heroku.png)](https://travis-ci.org/ppworks/we_love_heroku)
 
 ## Setup for development
 
