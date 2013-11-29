@@ -8,6 +8,8 @@ class Site < ActiveRecord::Base
   validates_length_of :creator, :minimum => 1, :maximum => 100
   validates_length_of :hash_tag, :minimum => 0, :maximum => 140
   validates_uniqueness_of :url
+  validates_url_format_of :url, message: :url_format
+  validates_url_format_of :repository_url, message: :url_format, allow_blank: true, allow_nil: true
 
   class << self
     def pickups

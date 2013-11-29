@@ -25,3 +25,5 @@ en:
           attributes:
             email:
               email_format: 'does not appear to be a valid e-mail address'
+        site:
+          url_format: 'does not appear to be a valid URL'

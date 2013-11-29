@@ -26,3 +26,5 @@ ja:
           attributes:
             email:
               email_format: '形式が不適切です'
+        site:
+          url_format: 'URLの形式が不適切です'
