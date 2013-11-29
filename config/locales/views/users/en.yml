@@ -1,0 +1,4 @@
+en:
+  users:
+    show:
+      title: 'Sites %{user_name} added'

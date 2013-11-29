@@ -7,3 +7,5 @@
       = content_tag_for(:li, sites) do |site|
         = render 'sites/site', :site => site
     = paginate sites
+  - else
+    .well= t('.empty')

@@ -8,6 +8,8 @@ ja:
       title: '登録されているサイト'
     pickups:
       title: 'ピックアップ'
+    sites:
+      empty: 'まだサイトが登録されていません'
     site:
       detail: '詳細を見る'
     show:

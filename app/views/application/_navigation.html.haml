@@ -16,6 +16,7 @@
               = "#{current_user.name}"
               %b.caret
             %ul.dropdown-menu
+              %li=link_to t('nav.users.show'), user_path(current_user)
               %li=link_to t('nav.common.sign_out'), destroy_user_session_path, method: :delete
         - else
           %li

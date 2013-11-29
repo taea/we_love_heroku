@@ -1,0 +1,9 @@
+.container
+  - if user_signed_in? && @user.me?(current_user)
+    = render('signin_button')
+  .row
+    .col-sm-3
+      = render('image', user: @user)
+      = @user.name
+    .col-sm-9
+      = render('sites/sites', sites: @sites, title: t('.title', user_name: @user.name))

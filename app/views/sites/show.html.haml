@@ -33,7 +33,7 @@
           %dd= link_to "##{@site.hash_tag.split(' ').join(' #')}", "http://twitter.com/search?q=#{CGI::escape(@site.hash_tags)}"
         - if @site.user.present?
           %dt= Site.human_attribute_name(:user)
-          %dd= render 'users/user', user: @site.user
+          %dd= render 'users/image', user: @site.user
 
       // same creators
       - same_creators = @site.same_creators - [@site]

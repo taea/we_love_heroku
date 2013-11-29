@@ -8,6 +8,8 @@ en:
       title: 'Sites powered by heroku'
     pickups:
       title: 'Pickup'
+    sites:
+      empty: 'Site not found'
     site:
       detail: 'Show detail'
     show:

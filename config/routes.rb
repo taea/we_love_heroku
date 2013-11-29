@@ -9,6 +9,7 @@ WeLoveHeroku::Application.routes.draw do
   end
 
   resources :sites
+  resources :users, only: [:show]
 
   get 'signin' => 'pages#signin'
   root to: 'sites#index'

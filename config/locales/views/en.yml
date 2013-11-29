@@ -12,3 +12,5 @@ en:
       sign_out: 'Sign out'
       post: 'Post'
       actions: 'Actions'
+    users:
+      show: 'User page'
