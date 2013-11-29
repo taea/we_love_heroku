@@ -6,16 +6,16 @@
       %ul.providers.list-unstyled
         - if !user_signed_in? || !current_user.connected?(:facebook)
           %li.pull-left
-            = link_to user_omniauth_authorize_path(:facebook), class: 'btn btn-primary btn-facebook' do
+            = link_to user_omniauth_authorize_path(:facebook), class: 'btn btn-lg btn-facebook' do
               %i.icon-white.icon-plus
               = t(".facebook.#{add_or_new}")
         - if !user_signed_in? || !current_user.connected?(:twitter)
           %li.pull-left
-            = link_to user_omniauth_authorize_path(:twitter), class: 'btn btn-info btn-twitter' do
+            = link_to user_omniauth_authorize_path(:twitter), class: 'btn btn-lg btn-twitter' do
               %i.icon-white.icon-plus
               = t(".twitter.#{add_or_new}")
         - if !user_signed_in? || !current_user.connected?(:github)
           %li.pull-left
-            = link_to user_omniauth_authorize_path(:github), class: 'btn btn-default btn-github' do
+            = link_to user_omniauth_authorize_path(:github), class: 'btn btn-lg btn-github' do
               %i.icon-plus
               = t(".github.#{add_or_new}")
