@@ -1,0 +1,13 @@
+.page-header
+  %h2
+    = t('.title')
+.row
+  - Site.pickups.each do|site|
+    .col-sm-4
+      .thumbnail
+        = link_to site.url, target: '_blank' do
+          = site_thumnail(site.url)
+        %h5= site.name
+        %p
+          = truncate(site.description, length: 100)
+          = link_to 'more...', site_path(site)

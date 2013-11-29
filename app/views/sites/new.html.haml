@@ -1,0 +1,6 @@
+.container
+  - unless user_signed_in?
+    = render('signin_button')
+  .row
+    .col-sm-9
+      = render('form')

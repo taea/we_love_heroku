@@ -1,6 +1,9 @@
 require 'resolv'
 class Site < ActiveRecord::Base
-  attr_accessible :user_id, :name, :url, :description, :creator, :hash_tag, :repository_url, :scheduled_access, :please_design
+  HEROKU_IPS =  %w(75.101.163.44 75.101.145.87 174.129.212.2)
+
+  belongs_to :user
+
   validates_presence_of :name, :url, :creator
   validates_length_of :name, :minimum => 3, :maximum => 100
   validates_length_of :url, :minimum => 3, :maximum => 100
@@ -8,69 +11,53 @@ class Site < ActiveRecord::Base
   validates_length_of :creator, :minimum => 1, :maximum => 100
   validates_length_of :hash_tag, :minimum => 0, :maximum => 140
   validates_uniqueness_of :url
-  validates_url_format_of :url
-  validates_url_format_of :repository_url, :allow_nil => true, :allow_blank => true
-  validate :url_is_heroku?  
-  
-  belongs_to :user
-  
-  scope :search, lambda {|keyword| where(["
-    name LIKE ? OR 
-    url LIKE ? OR 
-    description LIKE ? OR 
-    creator LIKE ? OR
-    hash_tag LIKE ? OR
-    repository_url LIKE ?
-    ", 
-    "%#{keyword}%", "%#{keyword}%", "%#{keyword}%",
-    "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"
-  ])}
-  scope :please_designed, where(:please_design => TRUE)
-  
-  def hash_tags
-    '#' + self.hash_tag.split(' ').join(' #')
-  end
-  
-  def domain
-    self.url.gsub(%r{http(?:s)?://([^/]+).+}, '\1')
-  end
-  
-  def same_creators
-    Site.where(:creator => self.creator)
-  end
-  
-  def self.pickups
-    Rails.cache.fetch("model_site_pickups", :expires_in => 15.minutes) do
-      Site.all.sort_by{rand}[0..2]
+  validates_url_format_of :url, message: :url_format
+  validates_url_format_of :repository_url, message: :url_format, allow_blank: true, allow_nil: true
+  validate :url_heroku
+
+  class << self
+    def pickups
+      Rails.cache.fetch("#{Rails.env}_model_site_pickups", expires_in: 15.minutes) do
+        Site.all.to_a.sort_by{rand}[0..2]
+      end
     end
   end
 
+  def hash_tags
+    '#' + self.hash_tag.split(' ').join(' #')
+  end
+
+  def same_creators
+    Site.where(:creator => self.creator)
+  end
+
   private
-  def url_is_heroku?
-    return if self.url =~ /heroku(app)?\.com\/?/
-    return true if Rails.env.test?
+  def url_heroku
+    return true if heroku_default
     if self.url =~ /http(?:s)?:\/\/([^\/]+)/
       host = $1
       begin
         ipaddress = Resolv.getaddress host
       rescue => e
-        logger.error e.message
-        errors.add :url, ' does not appear to be a valid heroku URL' 
+        errors.add :url, :heroku_hosted
         return
       end
-      unless APP_CONFIG[:heroku][:custom_domain].include? ipaddress
+      unless HEROKU_IPS.include?(ipaddress)
         begin
           cname = Resolv::DNS.new.getresource(host, Resolv::DNS::Resource::IN::ANY).name.to_s
         rescue => e
-          logger.error e.message
-          errors.add :url, ' does not appear to be a valid heroku URL'
+          errors.add :url, :heroku_hosted
           return
         end
+
         unless cname =~ /heroku(app|ssl)?\.com\/?/
-          errors.add :url, ' does not appear to be a valid heroku URL'
+          errors.add :url, :heroku_hosted
         end
       end
     end
+  end
 
+  def heroku_default
+    self.url =~ /heroku(app)?\.com\/?/
   end
 end

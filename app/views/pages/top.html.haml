@@ -1,0 +1,17 @@
+- content_for(:body_class, 'top sites')
+- content_for :head do
+  = auto_discovery_link_tag :atom, sites_path(format: :atom)
+  = render 'og_graph', {title: 'we love heroku',
+      type: "website",
+      url: root_url,
+      image: 'http://welove.herokuapp.com/assets/weloveheroku.png',
+      description: "Share your site on Heroku!It's gallery that web service powered by Heroku."}
+= render('welcome')
+.container
+  = render('sites/pickups')
+  .row
+    .col-sm-9
+      = render('sites/sites', sites: Site.order('id DESC').page(params[:page]).per(params[:per]), title: t('sites.index.title'))
+    .col-sm-3
+      .twitter-widget
+        = render('twitter_widget', search_key: '#weloveheroku')

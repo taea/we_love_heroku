@@ -1,92 +1,50 @@
 class SitesController < ApplicationController
-  before_filter :authenticate_user!, :only => [:edit, :update, :destroy]
-  # GET /sites
-  # GET /sites.js
-  # GET /sites.atom
+  before_filter :authenticate_user!, only: [:edit, :update, :destroy]
+  respond_to :html, :json, :atom
+
   def index
-    @sites = Site.order('updated_at DESC')
-    @sites = @sites.search(params[:keyword]) if params[:keyword]
-    @sites = @sites.please_designed if params[:please_design]
-    @sites = @sites.page(params[:page]).per(15)
-    
-    @pickups = Site.pickups
-    respond_to do |format|
-      format.html
-      format.js
-      format.atom
-    end
+    @search = Site.search(params[:q])
+    @sites = @search.result.page(params[:page]).per(params[:per])
+    @sites = @sites.order('id DESC') if @search.sorts.empty?
+    respond_with @sites
   end
-  
-  # GET /sites/1
-  # GET /sites/1.json
+
   def show
     @site = Site.find(params[:id])
-    @same_creators = @site.same_creators.all - [@site]
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @site }
-    end
+    respond_with @site
   end
 
-  # GET /sites/new
-  # GET /sites/new.json
   def new
+    session[:user_return_to] = new_site_path unless user_signed_in?
     @site = Site.new
-    @site.url = 'http://'
-    @site.creator = current_user.name if user_signed_in?
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @site }
-    end
   end
 
-  # GET /sites/1/edit
   def edit
     @site = current_user.sites.find(params[:id])
   end
 
-  # POST /sites
-  # POST /sites.json
   def create
-    @site = Site.new(params[:site])
-    @site.user_id = current_user.id if user_signed_in?
-    respond_to do |format|
-      if @site.save
-        url = (user_signed_in?)? current_user_path : @site
-        format.html { redirect_to url, notice: 'Site was successfully created.' }
-        format.json { render json: @site, status: :created, location: @site }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @site.errors, status: :unprocessable_entity }
-      end
-    end
+    @site = Site.new(site_params.merge(user: current_user))
+    flash[:notice] = t('sites.create.created') if @site.save && !request.xhr?
+    respond_with @site, location: sites_url
   end
 
-  # PUT /sites/1
-  # PUT /sites/1.json
   def update
     @site = current_user.sites.find(params[:id])
-
-    respond_to do |format|
-      if @site.update_attributes(params[:site])
-        format.html { redirect_to @site, notice: 'Site was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @site.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = t('sites.update.updated') if @site.update(site_params) && !request.xhr?
+    respond_with @site, location: sites_url
   end
 
-  # DELETE /sites/1
-  # DELETE /sites/1.json
   def destroy
     @site = current_user.sites.find(params[:id])
-    @site.destroy
+    flash[:notice] = t('sites.destroy.destroyed') if @site.destroy && !request.xhr?
+    respond_with @site, location: sites_url
+  end
 
-    respond_to do |format|
-      format.html { redirect_to sites_url, :notice => t('sites.destroy.completed') }
-      format.json { head :no_content }
-    end
+  private
+  def site_params
+    params.require(:site).permit(
+      :user_id, :name, :url, :description, :creator, :hash_tag,
+      :repository_url, :scheduled_access, :please_design)
   end
 end

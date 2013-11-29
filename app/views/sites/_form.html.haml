@@ -1,0 +1,15 @@
+= simple_form_for(@site, html: {class: 'form-horizontal', multipart: true}) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input(:url, placeholder: 'http://example.herokuapp.com')
+    = f.input(:name)
+    = f.input(:creator, hint: t('.hint.creator'))
+    = f.input(:description, hint: t('.hint.description'), input_html: {rows: 15})
+    = f.input(:hash_tag, hint: t('.hint.hash_tag'))
+    = f.input(:repository_url, hint: t('.hint.repository_url'))
+    // [FIXME] 外部CSSでいい感じにしたい
+    = f.input(:please_design, hint: t('.hint.please_design'), input_html: {style: 'border:none;width: auto;float:none;'})
+  .row
+    .col-sm-9.col-sm-offset-3
+      = f.submit(nil, class: 'btn btn-primary btn-block')
+%br

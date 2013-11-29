@@ -1,0 +1,50 @@
+.container
+  = render 'sns_buttons', :site => @site
+  %h1
+    - if @site.please_design?
+      %span.badge.badge-important= Site.human_attribute_name(:please_design)
+    = @site.name
+    %small
+      = link_to(@site.url, target: '_blank') do
+        = @site.url
+    - if user_signed_in? && @site.user.try(:me?, current_user)
+      = link_to edit_site_path(@site), class: 'btn btn-primary btn-edit' do
+        %i.glyphicon.glyphicon-pencil.glyphicon-white
+        = t('nav.common.edit')
+
+  .row
+    .col-sm-4
+      = link_to @site.url do
+        = site_thumnail(@site.url)
+
+    .col-sm-8
+      .well
+        = simple_format auto_link(@site.description, link: :urls, html: {target: '_blank'})
+
+        // attribute
+        %dl
+          - if @site.repository_url.present?
+            %dt= Site.human_attribute_name(:repository_url)
+            %dd= link_to(@site.url, @site.repository_url, target: '_blank')
+
+        %dt= Site.human_attribute_name(:creator)
+        %dd= @site.creator
+        - if @site.hash_tag.present?
+          %dt= Site.human_attribute_name(:hash_tag)
+          %dd= link_to "##{@site.hash_tag.split(' ').join(' #')}", "http://twitter.com/search?q=#{CGI::escape(@site.hash_tags)}"
+        - if @site.user.present?
+          %dt= Site.human_attribute_name(:user)
+          %dd= render 'users/image', user: @site.user
+
+      // same creators
+      - same_creators = @site.same_creators - [@site]
+      - if same_creators.present?
+        .panel.panel-default
+          .panel-heading= t('.same_creators_title', creator: @site.creator)
+          .panel-body
+            %ul.list-unstyled
+              - same_creators.each do |site|
+                %li
+                  = link_to site_path(site), class: '' do
+                    = site.name
+

@@ -1,0 +1,20 @@
+ja:
+  nav:
+    common:
+      back: '戻る'
+      cancel: 'キャンセル'
+      new: '新規'
+      edit: '編集'
+      show: '詳細'
+      delete: '削除'
+      delete_confirm: '削除してよろしいでしょうか？'
+      sign_in: 'ログインする'
+      sign_out: 'ログアウト'
+      post: '投稿する'
+      actions: '管理ツール'
+      search: '検索する'
+    users:
+      show: 'ユーザーページ'
+    sites:
+      new: 'サービスを登録する'
+      please_design: 'デザイン募集'

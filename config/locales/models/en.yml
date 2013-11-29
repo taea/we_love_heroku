@@ -1,0 +1,34 @@
+en:
+  activerecord:
+    models:
+      user: 'User'
+    attributes:
+      user:
+        name: 'User name'
+        email: 'E-mail Address'
+        image: 'User image'
+        locale: 'Locale Setting'
+        content: 'Self-introduction'
+      site:
+        name: 'Site name'
+        url: 'URL'
+        description: 'Description'
+        creator: 'Creator'
+        hash_tag: 'Twitter hashtag'
+        repository_url: 'Repository URL'
+        user: 'Registered user'
+        user_id: 'Registered user'
+        please_design: 'Please design!!!'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              email_format: 'does not appear to be a valid e-mail address'
+        site:
+          attributes:
+            url:
+              url_format: 'does not appear to be a valid URL'
+              heroku_hosted: 'does not appear to hosted on heroku'
+            repository_url:
+              url_format: 'does not appear to be a valid URL'

@@ -1,0 +1,20 @@
+en:
+  nav:
+    common:
+      back: 'Back'
+      cancel: 'Cancel'
+      new: 'New'
+      edit: 'Edit'
+      show: 'Detail'
+      delete: 'Delete'
+      delete_confirm: 'Really delete it?'
+      sign_in: 'Sign in'
+      sign_out: 'Sign out'
+      post: 'Post'
+      actions: 'Actions'
+      search: 'Search'
+    users:
+      show: 'User page'
+    sites:
+      new: 'Add new site'
+      please_design: 'Filter sites which please design!!!'

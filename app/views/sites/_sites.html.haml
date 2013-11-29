@@ -1,0 +1,11 @@
+.page-header
+  %h2= title
+#sites
+  - if sites.present?
+    = paginate sites, params: {controller: :sites, action: :index}
+    %ul.list-unstyled.thumbnails.sites
+      = content_tag_for(:li, sites) do |site|
+        = render 'sites/site', :site => site
+    = paginate sites, params: {controller: :sites, action: :index}
+  - else
+    .well= t('.empty')

@@ -1,0 +1,12 @@
+- content_for(:body_class, 'sites')
+.container
+  .row
+    .col-sm-9
+      = render('please_design')
+      = render('sites', sites: @sites, title: t('.title'))
+    .col-sm-3
+      = link_to new_site_path, class: 'btn btn-primary btn-block' do
+        %i.glyphicon.glyphicon-edit.glyphicon-white
+        = t('nav.sites.new')
+      .twitter-widget
+        = render('twitter_widget', search_key: '#weloveheroku')

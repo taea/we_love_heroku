@@ -1,13 +1,15 @@
 FactoryGirl.define do
-  factory :site, :class => Site do
-    name 'test'
-    url 'http://example.com'
-    description 'test test'
-    creator 'test'
-    hash_tag '#test'
-    repository_url 'http://example.org'
-    user_id 1
-    scheduled_access TRUE
-    please_design TRUE
+  sequence :url do |n|
+    "http://example#{n.to_s}.herokuapp.com"
+  end
+  factory :site, class: 'Site' do
+    name { Faker::Name.title }
+    url
+    description { Faker::Lorem.paragraphs.join("\n") }
+    creator { Faker::Name.name }
+    hash_tag { "##{Faker::Name.title}" }
+    repository_url { Faker::Internet.url }
+    scheduled_access true
+    please_design true
   end
 end

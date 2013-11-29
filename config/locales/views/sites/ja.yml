@@ -1,0 +1,29 @@
+ja:
+  sites:
+    index:
+      title: '登録されているサイト'
+    pickups:
+      title: 'ピックアップ'
+    sites:
+      empty: 'まだサイトが登録されていません'
+    site:
+      detail: '詳細を見る'
+    show:
+      same_creators_title: "%{creator}さんの他のサービス"
+    edit:
+      delete_description: '削除すると元に戻すことは出来ません。'
+    form:
+      hint:
+        creator: '開発者の名前を入力して下さい。例) ppworks'
+        description: 'サイトの説明などを記載して下さい'
+        hash_tag: '#なしで複数指定する場合は、スペース区切りで記載して下さい。例) weloveheroku ppworks'
+        repository_url: 'サイトのソースを公開している場合はリポジトリURLを記載して下さい。'
+        please_design: 'デザイン募集中の場合はチェックを入れて下さい'
+    create:
+      created: 'サイトを登録しました'
+    update:
+      updated: 'サイトを更新しました'
+    destroy:
+      destroyed: 'サイトを削除しました'
+    search_form:
+      placeholder: 'キーワードで検索'

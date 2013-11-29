@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %title= content_for?(:title) ? yield(:title) : "We love heroku"
+      %meta{:content => content_for?(:description) ? yield(:description) : "WeLoveHeroku", :name => "description"}
+        = stylesheet_link_tag "application", :media => "all"
+        = javascript_include_tag "application"
+        = csrf_meta_tags
+        = google_analytics(ENV['GA'])
+        = yield(:head)
+  %body{class: yield(:body_class)}
+
+    = render 'navigation'
+    = render 'messages'
+    = yield
+    %footer
+    = render 'fb_load_js'
+    %script{:src => "//platform.twitter.com/widgets.js"}
+
+    .container
+      %footer
+        %p
+          = link_to 'we love heroku', 'https://github.com/ppworks/we_love_heroku'
+          \&copy; #{link_to 'ppworks', 'http://twitter.com/ppworks'} 2012 - #{Time.current.year}
+          powered by #{link_to 'heroku', 'http://heroku.com'}
+        = render 'sns_buttons', site: Site.new(name: 'we love heroku', url: 'http://welove.herokuapp.com', hash_tag: 'weloveheroku')

@@ -1,0 +1,35 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      site: 'サイト'
+    attributes:
+      user:
+        name: 'ユーザー名'
+        email: 'メールアドレス'
+        image: 'ユーザー画像'
+        locale: '言語設定'
+        content: '自己紹介文'
+      site:
+        name: 'サイト名'
+        url: 'URL'
+        description: '説明'
+        creator: '開発者'
+        hash_tag: 'ツイッターハッシュタグ'
+        repository_url: 'レポジトリURL'
+        user: '登録者'
+        user_id: '登録者'
+        please_design: 'デザイン募集中'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              email_format: '形式が不適切です'
+        site:
+          attributes:
+            url:
+              url_format: 'URLの形式が不適切です'
+              heroku_hosted: 'HerokuでホストされていないURLです'
+            repository_url:
+              url_format: 'URLの形式が不適切です'

@@ -1,0 +1,7 @@
+= search_form_for(@search || Site.search(params[:q]), url: sites_path, html: {class: 'form-inline'}, :builder => SimpleForm::FormBuilder) do |f|
+  .form-group
+    %i.icon-search
+    = f.text_field(:name_or_url_or_description_or_creator_or_hash_tag_or_repository_url_cont,
+      id: 'keyword',
+      placeholder: t('.placeholder'),
+      class: 'form-control')
