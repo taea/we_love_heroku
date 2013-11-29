@@ -37,10 +37,4 @@ WeLoveHeroku::Application.configure do
   ActionMailer::Base.delivery_method = :test
   ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.deliveries = []
-
-  # guard-rails-assets
-  config.assets.prefix = '/assets-test'
-
-  # capybara
-  config.action_controller.asset_host = ENV['TEST_ASSET_HOST'] if ENV['TEST_ASSET_HOST'].present?
 end
