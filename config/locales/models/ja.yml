@@ -27,4 +27,9 @@ ja:
             email:
               email_format: '形式が不適切です'
         site:
-          url_format: 'URLの形式が不適切です'
+          attributes:
+            url:
+              url_format: 'URLの形式が不適切です'
+              heroku_hosted: 'HerokuでホストされていないURLです'
+            repository_url:
+              url_format: 'URLの形式が不適切です'

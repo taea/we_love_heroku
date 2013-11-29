@@ -1,6 +1,6 @@
 FactoryGirl.define do
   sequence :url do |n|
-    "http://example#{n.to_s}.example.com"
+    "http://example#{n.to_s}.herokuapp.com"
   end
   factory :site, class: 'Site' do
     name { Faker::Name.title }

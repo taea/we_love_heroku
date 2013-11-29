@@ -26,4 +26,9 @@ en:
             email:
               email_format: 'does not appear to be a valid e-mail address'
         site:
-          url_format: 'does not appear to be a valid URL'
+          attributes:
+            url:
+              url_format: 'does not appear to be a valid URL'
+              heroku_hosted: 'does not appear to hosted on heroku'
+            repository_url:
+              url_format: 'does not appear to be a valid URL'
